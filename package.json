@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier . --check",
     "format:write": "prettier . --write",
+    "test": "echo \"No tests specified yet\"",
     "prepare": "husky"
   },
   "lint-staged": {
