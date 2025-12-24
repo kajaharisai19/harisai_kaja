@@ -1,35 +1,31 @@
-export default function App() {
+import './index.css'
+import Navigation from './components/Navigation'
+import Hero from './pages/Hero'
+import About from './pages/About'
+import Skills from './pages/Skills'
+import Education from './pages/Education'
+import Experience from './pages/Experience'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
+
+function App() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-6">
-      <section className="max-w-2xl text-center">
-        <h1 className="text-4xl font-semibold tracking-tight">
-          Hari Sai Kaja
-        </h1>
-
-        <p className="mt-4 text-base leading-7 text-neutral-600">
-          Full-stack Software Engineer with 5+ years of experience building SaaS
-          fintech platforms, scalable APIs, and automated tools using PHP/Laravel,
-          JavaScript/Node.js, and React. Currently pursuing an MS in Applied
-          Computer Science at GVSU.
-        </p>
-
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <a
-            className="rounded-md border px-4 py-2 text-sm hover:bg-neutral-50"
-            href="https://www.linkedin.com/in/kajaharisai/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a
-            className="rounded-md bg-black text-white px-4 py-2 text-sm hover:opacity-90"
-            href="mailto:kaja.harisai19@gmail.com"
-          >
-            Email
-          </a>
+    <div className="bg-gray-900">
+      <Navigation />
+      <Hero />
+      <About />
+      <Skills />
+      <Education />
+      <Experience />
+      <Projects />
+      <Contact />
+      <footer className="bg-gray-950 border-t border-gray-800 py-8">
+        <div className="max-w-6xl mx-auto px-6 text-center text-gray-400">
+          <p>© 2025 Hari Sai Kaja. Built with React & Tailwind CSS.</p>
         </div>
-      </section>
-    </main>
-  );
+      </footer>
+    </div>
+  )
 }
+
+export default App
