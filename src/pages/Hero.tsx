@@ -6,12 +6,12 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 pt-16">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-900 via-blue-900 to-gray-900 pt-16">
       <div className="text-center text-white px-6">
         <div className="mb-6">
           <span className="text-blue-400 text-lg font-mono">Hello, I'm</span>
         </div>
-        <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
           Hari Sai Kaja
         </h1>
         <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-semibold">

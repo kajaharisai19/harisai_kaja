@@ -9,7 +9,7 @@ export default function About() {
           <div className="flex justify-center">
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-600 shadow-2xl">
               <img
-                src="./src/assets/Profile.png"
+                src="Profile.png"
                 alt="Hari Sai Kaja"
                 className="w-full h-full object-cover"
               />
