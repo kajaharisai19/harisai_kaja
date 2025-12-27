@@ -6,9 +6,10 @@ export default function Experience() {
       period: 'Jan 2025 - Present',
       location: 'Grand Rapids, MI',
       highlights: [
-        'Researching secure authentication protocols for IoHT devices using blockchain',
-        'Developed lightweight authentication algorithms and built simulator',
+        'Researching secure authentication protocols for IoHT devices using blockchain under Dr. Samah Mansour',
+        'Developed lightweight authentication algorithms and built simulator to test algorithms',
         'Designed continuous authentication protocol for IOT/IOHT devices',
+        'Documented and presented findings to academic committees, effectively communicating technical details',
       ],
     },
     {
@@ -17,9 +18,10 @@ export default function Experience() {
       period: 'Aug 2021 - Aug 2024',
       location: 'Hyderabad, India',
       highlights: [
-        'Built backend microservices and scalable APIs for fintech applications',
-        'Developed full-stack features using Laravel and Next.js',
-        'Managed AWS infrastructure and implemented CI/CD pipelines',
+        'Collaborated with software engineering teams to build backend microservices and scalable APIs',
+        'Built full-stack features using Laravel (backend) and JavaScript/Next.js (frontend) for customer-facing dashboards',
+        'Designed microservices and backend services in Laravel and NestJS to improve scalability',
+        'Managed AWS-based infrastructure, optimized MySQL queries, and implemented CI/CD pipelines',
       ],
     },
     {
@@ -28,9 +30,34 @@ export default function Experience() {
       period: 'Oct 2019 - Aug 2021',
       location: 'New Delhi, India',
       highlights: [
-        'Constructed real-time Covid-19 dashboard with API integration',
-        'Developed data-driven dashboards and automated ETL pipelines',
-        'Enhanced platform performance with PostgreSQL optimization',
+        'Constructed real-time Covid-19 dashboard by integrating APIs and optimizing data pipelines',
+        'Developed data-driven dashboards and automated ETL pipelines supporting business-critical decision making',
+        'Led Election Maps project by enhancing site performance with static rendering and automating data flows',
+        'Enhanced platform performance through database design improvements using PostgreSQL and Python',
+      ],
+    },
+    {
+      role: 'Software Development Engineer',
+      company: 'Vitwit Technologies',
+      period: 'Aug 2018 - Oct 2019',
+      location: 'Hyderabad, India',
+      highlights: [
+        'Designed and developed AI-based fintech application which automated 80% of manual efforts in e-filing of income tax',
+        'Engineered backend APIs for Brandowler using Node.js and Python with focus on big data integration',
+        'Implemented sentiment analysis using NLTK achieving performance improvement from 60% to 85%',
+        'Directed DevOps initiatives by containerizing applications with Docker and establishing CI/CD pipelines via Jenkins on AWS',
+      ],
+    },
+    {
+      role: 'Trainee Engineer',
+      company: 'Jochebed Tech Solutions',
+      period: 'Nov 2017 - Aug 2018',
+      location: 'Hyderabad, India',
+      highlights: [
+        'Developed comprehensive monitoring system for in-house inventory using Django and MySQL',
+        'Implemented and deployed backend system that improved data integrity and operational efficiency',
+        'Applied SDLC practices to maintain consistent code quality and organized project workflows',
+        'Performed DevOps tasks utilizing Docker for containerization and timely application deployments',
       ],
     },
   ]
