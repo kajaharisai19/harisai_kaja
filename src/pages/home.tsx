@@ -20,7 +20,7 @@ export default function Home() {
       <Contact />
       <footer className="bg-gray-900 border-t border-gray-800 py-8">
         <div className="max-w-6xl mx-auto px-6 text-center text-gray-400">
-          <p>© 2024 Hari Sai Kaja. Built with React & Tailwind CSS.</p>
+          <p>© 2025 Hari Sai Kaja. Built with React & Tailwind CSS.</p>
         </div>
       </footer>
     </div>

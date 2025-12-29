@@ -93,7 +93,7 @@ export default function Login() {
     href="/"
     className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
   >
-    ← Back to Home
+    Back to Home
   </a>
 </div>
 
