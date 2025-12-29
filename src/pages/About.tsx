@@ -57,7 +57,7 @@ export default function About() {
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden bg-linear-to-br from-blue-100 to-cyan-100">
               <img
-                src="/profile.png"
+                src="/Profile.png"
                 alt="Hari Sai Kaja"
                 className="w-full h-full object-cover"
                 onError={(e) => {
