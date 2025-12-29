@@ -1,6 +1,6 @@
 import './index.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+import Home from './pages/HomePage'
 import Login from './pages/Login'
 import Admin from './pages/Admin'
 import MessageDetail from './pages/MessageDetail'
