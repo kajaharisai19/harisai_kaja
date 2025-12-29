@@ -7,7 +7,7 @@ export default function Education() {
       institution: 'Grand Valley State University',
       location: 'Grand Rapids, Michigan',
       gpa: '3.89',
-      period: 'Expected Aug 2026',
+      period: 'Expected May 2026',
     },
     {
       degree: 'Bachelor of Technology, Electronics and Communication Engineering',

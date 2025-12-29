@@ -76,7 +76,7 @@ export default function Contact() {
       icon: Github,
       title: 'GitHub',
       value: '@kajaharisai',
-      href: 'https://github.com/kajaharisai',
+      href: 'https://github.com/kajaharisai19',
     },
   ]
 
@@ -146,7 +146,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="your.email@example.com"
+                  placeholder="youremail@example.com"
                   disabled={isSubmitting}
                 />
               </div>
@@ -163,7 +163,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none"
-                placeholder="Tell me about your project..."
+                placeholder="Place your query here..."
                 disabled={isSubmitting}
               />
             </div>

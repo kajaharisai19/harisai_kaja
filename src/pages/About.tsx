@@ -1,4 +1,4 @@
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, Code, Palette, Cloud, Database } from 'lucide-react'
 
 export default function About() {
   const highlights = [
@@ -20,18 +20,22 @@ export default function About() {
     {
       title: 'Backend Development',
       skills: 'Python, Node.js, NestJS, Django, Flask',
+      icon: Code,
     },
     {
       title: 'Frontend Development',
       skills: 'React, Next.js, TypeScript, Vue.js',
+      icon: Palette,
     },
     {
       title: 'DevOps & Cloud',
       skills: 'AWS, Docker, Kubernetes, CI/CD, Terraform',
+      icon: Cloud,
     },
     {
       title: 'Data Engineering',
       skills: 'ETL Pipelines, PostgreSQL, MongoDB, Pandas',
+      icon: Database,
     },
   ]
 
@@ -40,6 +44,12 @@ export default function About() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">About</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
+            Creating{' '}
+            <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              Innovative Solutions
+            </span>
+          </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
@@ -47,7 +57,7 @@ export default function About() {
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden bg-linear-to-br from-blue-100 to-cyan-100">
               <img
-                src="/Profile.png"
+                src="/profile.png"
                 alt="Hari Sai Kaja"
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -89,18 +99,21 @@ export default function About() {
 
         {/* Expertise Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {expertise.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-600 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-2xl">{['🚀', '⚛️', '☁️', '📊'][index]}</span>
+          {expertise.map((item, index) => {
+            const IconComponent = item.icon
+            return (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-600 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <IconComponent className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.skills}</p>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.skills}</p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

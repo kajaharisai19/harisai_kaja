@@ -30,7 +30,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 px-6">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-900 via-blue-900 to-gray-900 px-6">
       <div className="max-w-md w-full bg-gray-900 border border-gray-800 rounded-lg p-8">
         <h1 className="text-3xl font-bold text-white mb-6 text-center">
           Admin Login

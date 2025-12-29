@@ -26,7 +26,7 @@ export default function Hero() {
     }, 30)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [codeText])
 
   const scrollToProjects = () => {
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
@@ -39,7 +39,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 pt-16 px-6"
+      className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-950 via-blue-950 to-slate-950 pt-16 px-6"
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -56,8 +56,8 @@ export default function Hero() {
                 <br />
                 Cloud-Native
                 <br />
-                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  Solutions
+                <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Solutions
                 </span>
               </h1>
 
