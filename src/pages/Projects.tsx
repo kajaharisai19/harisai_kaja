@@ -1,65 +1,106 @@
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 
 export default function Projects() {
   const projects = [
     {
-      title: 'AI-Powered Fintech Application',
-      description: 'Automated 80% of manual efforts in e-filing of income tax using AI and machine learning algorithms.',
-      tech: ['Python', 'Machine Learning', 'Node.js', 'React'],
+      title: 'COVID-19 Data Visualization',
+      description:
+        'Real-time COVID-19 dashboard displaying cases, graphs, and maps for India and the world. Built data pipelines and interactive visualizations for tracking pandemic statistics.',
+      image:
+        'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&auto=format&fit=crop',
+      tech: ['Python', 'React', 'Data Visualization', 'APIs'],
       github: '#',
-      live: '#',
+      demo: 'https://viz.newsclick.in/covid19-cases-graphs-maps-india-world',
     },
     {
-      title: 'Real-Time Covid-19 Dashboard',
-      description: 'Built a real-time dashboard integrating multiple APIs with optimized data pipelines for rapid performance.',
-      tech: ['Python', 'PostgreSQL', 'APIs', 'Data Visualization'],
+      title: 'SyncOffice',
+      description:
+        'Cloud solution for Tally ERP integration enabling real-time data synchronization and backup. Increased client productivity by 70% through automated workflows and seamless cloud infrastructure.',
+      image:
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop',
+      tech: ['NestJS', 'Next.js', 'AWS', 'Cloud Integration'],
       github: '#',
-      live: '#',
+      demo: 'https://syncoffice.com/',
     },
     {
-      title: 'IoHT Authentication Protocol',
-      description: 'Designed lightweight continuous authentication protocol for IoT/IoHT devices using blockchain technology.',
-      tech: ['Blockchain', 'Security', 'Python', 'Algorithms'],
+      title: 'TaxFriday',
+      description:
+        'AI-based fintech application automating 80% of manual efforts in e-filing of income tax. Implemented OCR for document processing and intelligent form filling using machine learning.',
+      image:
+        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop',
+      tech: ['Python', 'React', 'OCR', 'Machine Learning'],
       github: '#',
-      live: '#',
+      demo: '#',
     },
   ]
 
   return (
-    <section id="projects" className="min-h-screen bg-gray-900 py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          Projects
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section id="projects" className="min-h-screen bg-white py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">
+            Portfolio
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
+            Featured Projects
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Here are some of my notable projects that showcase my expertise in building scalable
+            applications and solving real-world problems.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-blue-600 transition-colors group"
+              className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
-                <div className="flex gap-2">
-                  <a href={project.github} className="text-gray-400 hover:text-white transition-colors">
-                    <Github className="w-5 h-5" />
-                  </a>
-                  <a href={project.live} className="text-gray-400 hover:text-white transition-colors">
-                    <ExternalLink className="w-5 h-5" />
-                  </a>
-                </div>
+              {/* Project Image */}
+              <div className="relative h-48 overflow-hidden bg-gray-100">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
-              <p className="text-gray-300 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-gray-900 text-blue-400 text-sm rounded"
-                  >
-                    {tech}
-                  </span>
-                ))}
+
+              {/* Project Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                <p className="text-gray-600 mb-4 text-sm">{project.description}</p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-3">
+                  {project.demo !== '#' ? (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View Live
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-500 rounded-lg text-sm font-medium flex-1 justify-center cursor-not-allowed">
+                      <ExternalLink className="w-4 h-4" />
+                      Private Project
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ))}

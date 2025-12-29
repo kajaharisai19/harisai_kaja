@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Admin from './pages/Admin'
+import MessageDetail from './pages/MessageDetail'
 import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
@@ -16,6 +17,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Admin />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/message/:id"
+          element={
+            <ProtectedRoute>
+              <MessageDetail />
             </ProtectedRoute>
           }
         />

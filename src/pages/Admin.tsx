@@ -1,19 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react'
 import { auth, db } from '../lib/firebase'
 import { signOut } from 'firebase/auth'
 import type { User } from 'firebase/auth'
-import { collection, query, orderBy, onSnapshot, doc, updateDoc, deleteDoc } from 'firebase/firestore'
+import { collection, query, orderBy, onSnapshot, deleteDoc, doc, Timestamp } from 'firebase/firestore'
 import type { DocumentData } from 'firebase/firestore'
-import { Mail, Trash2, CheckCircle, LogOut, Loader } from 'lucide-react'
+import { Mail, Trash2, LogOut, Loader, Eye } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+
 
 interface ContactMessage extends DocumentData {
   id: string
   name: string
   email: string
   message: string
-  timestamp: any
+  timestamp: Timestamp
   status: 'read' | 'unread'
 }
 
@@ -63,18 +63,9 @@ export default function Admin() {
     }
   }
 
-  const markAsRead = async (messageId: string) => {
-    try {
-      const messageRef = doc(db, 'contact_messages', messageId)
-      await updateDoc(messageRef, {
-        status: 'read',
-      })
-    } catch (error) {
-      console.error('Error marking as read:', error)
-    }
-  }
-
-  const deleteMessage = async (messageId: string) => {
+  const deleteMessage = async (messageId: string, e: React.MouseEvent) => {
+    e.stopPropagation() // Prevent navigation to detail page
+    
     if (!window.confirm('Are you sure you want to delete this message?')) {
       return
     }
@@ -86,7 +77,7 @@ export default function Admin() {
     }
   }
 
-  const formatDate = (timestamp: any) => {
+  const formatDate = (timestamp: Timestamp) => {
     if (!timestamp) return 'N/A'
     const date = timestamp.toDate()
     return new Intl.DateTimeFormat('en-US', {
@@ -96,6 +87,10 @@ export default function Admin() {
       hour: '2-digit',
       minute: '2-digit',
     }).format(date)
+  }
+
+  const viewMessage = (messageId: string) => {
+    navigate(`/admin/message/${messageId}`)
   }
 
   if (isLoading) {
@@ -154,13 +149,14 @@ export default function Admin() {
             messages.map((message) => (
               <div
                 key={message.id}
-                className={`bg-gray-800 border rounded-lg p-6 transition-colors ${
+                onClick={() => viewMessage(message.id)}
+                className={`bg-gray-800 border rounded-lg p-6 transition-all cursor-pointer hover:shadow-xl ${
                   message.status === 'unread'
-                    ? 'border-blue-600'
-                    : 'border-gray-700'
+                    ? 'border-blue-600 hover:border-blue-500'
+                    : 'border-gray-700 hover:border-gray-600'
                 }`}
               >
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <h3 className="text-lg font-semibold text-white">
@@ -172,32 +168,28 @@ export default function Admin() {
                         </span>
                       )}
                     </div>
-                    <p className="text-gray-400 text-sm mb-1">{message.email}</p>
-                    <p className="text-gray-500 text-xs">
+                    <p className="text-gray-400 text-sm mb-2">{message.email}</p>
+                    <p className="text-gray-500 text-xs mb-3">
                       {formatDate(message.timestamp)}
                     </p>
+                    <p className="text-gray-300 line-clamp-2">{message.message}</p>
                   </div>
-                  <div className="flex gap-2">
-                    {message.status === 'unread' && (
-                      <button
-                        onClick={() => markAsRead(message.id)}
-                        className="p-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
-                        title="Mark as read"
-                      >
-                        <CheckCircle className="w-4 h-4" />
-                      </button>
-                    )}
+                  <div className="flex gap-2 ml-4">
                     <button
-                      onClick={() => deleteMessage(message.id)}
+                      onClick={() => viewMessage(message.id)}
+                      className="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                      title="View message"
+                    >
+                      <Eye className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={(e) => deleteMessage(message.id, e)}
                       className="p-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
                       title="Delete"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
-                </div>
-                <div className="bg-gray-900 rounded-lg p-4">
-                  <p className="text-gray-300 whitespace-pre-wrap">{message.message}</p>
                 </div>
               </div>
             ))
