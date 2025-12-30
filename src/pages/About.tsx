@@ -44,12 +44,6 @@ export default function About() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">About</span>
-          {/* <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
-            Creating{' '}
-            <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              Innovative Solutions
-            </span>
-          </h2> */}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
