@@ -87,7 +87,7 @@ export default function Hero() {
             {/* Social Icons */}
             <div className="flex gap-4 pt-4">
               <a
-                href="https://github.com/kajaharisai"
+                href="https://github.com/kajaharisai19"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-gray-800/50 hover:bg-gray-700 border border-gray-700 rounded-lg transition-colors"
