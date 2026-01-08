@@ -7,9 +7,9 @@ export default function Hero() {
   const codeText = `const developer = {
   name: "Hari Sai Kaja",
   role: "Software Engineer",
-  experience: "5+ years",
+  experience: "7+ years",
   skills: [
-    "Python", "JavaScript",
+    "Python", "JavaScript", "TypeScript",
     "AWS", "Docker"
   ]
 };`

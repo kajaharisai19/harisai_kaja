@@ -90,10 +90,6 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
             Get In Touch
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be
-            part of your visions.
-          </p>
         </div>
 
         {/* Contact Methods */}

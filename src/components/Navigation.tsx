@@ -15,6 +15,7 @@ export default function Navigation() {
     { name: 'Projects', hash: '#projects' },
     { name: 'Skills', hash: '#skills' },
     { name: 'Contact', hash: '#contact' },
+    {name: 'Certifications', hash: '#certifications'}
   ]
 
   const scrollToSection = (hash: string) => {

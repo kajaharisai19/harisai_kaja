@@ -101,7 +101,7 @@ export default function Education() {
         <div>
           <div className="flex items-center gap-2 mb-6">
             <Users className="w-6 h-6 text-blue-600" />
-            <h3 className="text-2xl font-bold text-gray-900">Extracurricular Activities</h3>
+            <h3 className="text-2xl font-bold text-gray-900">Memberships & Community work</h3>
           </div>
           <div className="space-y-6">
             {extracurricular.map((activity, index) => (

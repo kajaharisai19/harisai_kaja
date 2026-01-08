@@ -6,6 +6,7 @@ import Projects from './Projects'
 import Skills from './Skills'
 import Education from './Education'
 import Contact from './Contact'
+import Certifications from './Certifications'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Experience />
       <Projects />
       <Skills />
+      <Certifications />
       <Education />
       <Contact />
       <footer className="bg-gray-900 border-t border-gray-800 py-8">
