@@ -1,6 +1,15 @@
 export default function Experience() {
   const experiences = [
     {
+      role: 'Software Developer',
+      company: 'Blue Nucleus - Grand Valley State University',
+      period: 'Jan 2026 - Present',
+      location: 'Grand Rapids, MI',
+      highlights: [
+        'Software Developer'
+      ],
+    },
+    {
       role: 'Graduate Assistant',
       company: 'Grand Valley State University',
       period: 'Jan 2025 - Present',
@@ -13,7 +22,7 @@ export default function Experience() {
     },
     {
       role: 'Senior Software Developer & Team Lead',
-      company: 'Candy Technologies',
+      company: 'Candy Technologies pvt ltd',
       period: 'Aug 2021 - Aug 2024',
       location: 'Hyderabad, India',
       highlights: [
@@ -40,7 +49,7 @@ export default function Experience() {
     },
     {
       role: 'Software Development Engineer',
-      company: 'Vitwit Technologies',
+      company: 'Vitwit Technologies pvt ltd',
       period: 'Aug 2018 - Oct 2019',
       location: 'Hyderabad, India',
       highlights: [
