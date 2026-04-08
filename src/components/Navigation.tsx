@@ -14,8 +14,8 @@ export default function Navigation() {
     { name: 'Experience', hash: '#experience' },
     { name: 'Projects', hash: '#projects' },
     { name: 'Skills', hash: '#skills' },
+    { name: 'Certifications', hash: '#certifications' },
     { name: 'Contact', hash: '#contact' },
-    {name: 'Certifications', hash: '#certifications'}
   ]
 
   const scrollToSection = (hash: string) => {
@@ -38,7 +38,7 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      setScrolled(window.scrollY > 20)
 
       const sections = navItems.map(item => item.hash.substring(1))
       const scrollPosition = window.scrollY + 100
@@ -67,8 +67,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-md'
-          : 'bg-transparent'
+          ? 'glass-white shadow-xl'
+          : 'glass-dark'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,14 +78,12 @@ export default function Navigation() {
               navigate('/')
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className={`text-2xl font-bold transition-colors ${
-              scrolled ? 'text-gray-900' : 'text-white'
-            }`}
+            className="text-2xl font-bold text-white"
           >
-            <span className="text-blue-600">HSK</span>
+            Hari<span className="text-blue-400">Dev</span>
           </button>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
               const sectionId = item.hash.substring(1)
               const isActive = activeSection === sectionId
@@ -94,12 +92,10 @@ export default function Navigation() {
                 <button
                   key={item.hash}
                   onClick={() => scrollToSection(item.hash)}
-                  className={`transition-colors duration-200 ${
+                  className={`px-4 py-2 rounded-full transition-all duration-200 font-medium ${
                     isActive
-                      ? 'text-blue-600 font-semibold'
-                      : scrolled
-                      ? 'text-gray-700 hover:text-blue-600'
-                      : 'text-gray-300 hover:text-white'
+                      ? 'bg-white/20 text-white shadow-lg'
+                      : 'text-white/70 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {item.name}
@@ -107,27 +103,25 @@ export default function Navigation() {
               )
             })}
 
-            {/* <button
+            <button
               onClick={() => navigate('/login')}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
+              className="flex items-center gap-2 px-5 py-2 ml-4 bg-linear-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full transition-all duration-200 shadow-lg hover:shadow-xl font-medium"
             >
               <LogIn className="w-4 h-4" />
               Login
-            </button> */}
+            </button>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden transition-colors ${
-              scrolled ? 'text-gray-900' : 'text-white'
-            }`}
+            className="md:hidden text-white"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {isOpen && (
-          <div className="md:hidden py-4 space-y-4 bg-white rounded-b-lg shadow-lg">
+          <div className="md:hidden py-4 space-y-2 glass-white rounded-b-2xl shadow-xl mt-2">
             {navItems.map((item) => {
               const sectionId = item.hash.substring(1)
               const isActive = activeSection === sectionId
@@ -136,10 +130,10 @@ export default function Navigation() {
                 <button
                   key={item.hash}
                   onClick={() => scrollToSection(item.hash)}
-                  className={`block w-full text-left px-4 py-2 transition-colors ${
+                  className={`block w-full text-left px-4 py-3 mx-2 transition-all font-medium rounded-xl ${
                     isActive
-                      ? 'text-blue-600 font-semibold bg-blue-50'
-                      : 'text-gray-700 hover:bg-gray-50'
+                      ? 'bg-blue-500 text-white shadow-md'
+                      : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
                   {item.name}
@@ -151,7 +145,7 @@ export default function Navigation() {
                 setIsOpen(false)
                 navigate('/login')
               }}
-              className="flex items-center justify-center gap-2 w-full mx-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
+              className="flex items-center justify-center gap-2 w-11/12 mx-auto px-4 py-3 bg-linear-to-r from-blue-500 to-cyan-500 text-white rounded-xl transition-colors font-medium shadow-lg mt-2"
             >
               <LogIn className="w-4 h-4" />
               Login

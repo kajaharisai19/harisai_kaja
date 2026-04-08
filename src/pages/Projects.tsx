@@ -3,32 +3,72 @@ import { ExternalLink } from 'lucide-react'
 export default function Projects() {
   const projects = [
     {
-      title: 'COVID-19 Data Visualization',
+      title: 'LLM Clinical Simulation Platform',
       description:
-        'Real-time COVID-19 dashboard displaying cases, graphs, and maps for India and the world. Built data pipelines and interactive visualizations for tracking pandemic statistics.',
+        'AI-powered platform for nursing education at GVSU where faculty enter patient diagnostics as a prompt and the LLM generates complete clinical cases and patient charts for simulation labs. Co-ideated the product; led UX design, RBAC, and security architecture.',
+      image:
+        'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop',
+      tech: ['Next.js', 'OpenAI API', 'Anthropic API', 'Supabase', 'PostgreSQL', 'TypeScript'],
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: 'Sana AI Chatbot',
+      description:
+        'AI assistant chatbot built in under 24 hours using Rasa. Won Special Appreciation Award at Vitwit Technologies. Demonstrated rapid LLM-adjacent prototyping and conversational AI design.',
+      image:
+        'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&auto=format&fit=crop',
+      tech: ['Rasa', 'Python'],
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: 'Tax Filing Assistant',
+      description:
+        'Conversational Rasa chatbot that analyses tax returns and recommends personalised tax-saving strategies. Built for a fintech client with a React + Node.js frontend.',
+      image:
+        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop',
+      tech: ['Rasa', 'Node.js', 'React', 'Python'],
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: 'Social Media Intelligence Platform',
+      description:
+        'Ingests public web and social data via boolean keyword queries, then runs NLP contextual sentiment analysis to classify content as positive, negative, or moderate. Backend led at Vitwit Technologies.',
+      image:
+        'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format&fit=crop',
+      tech: ['Python', 'NLP', 'Sentiment Analysis', 'PostgreSQL'],
+      github: '#',
+      demo: '#',
+    },
+    {
+      title: 'COVID-19 Prediction Model',
+      description:
+        'ML model predicting COVID-19 case trends integrated into a live public health dashboard at NewsClick.in during the pandemic. Paired with Kafka-based real-time streaming pipelines.',
       image:
         'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&auto=format&fit=crop',
-      tech: ['Python', 'React', 'Data Visualization', 'APIs'],
+      tech: ['Python', 'Machine Learning', 'Apache Kafka', 'ELK Stack'],
       github: '#',
       demo: 'https://viz.newsclick.in/covid19-cases-graphs-maps-india-world',
     },
     {
-      title: 'SyncOffice',
+      title: 'Swecha Gonthuka (Telugu LLM)',
       description:
-        'Cloud solution for Tally ERP integration enabling real-time data synchronization and backup. Increased client productivity by 70% through automated workflows and seamless cloud infrastructure.',
+        'Contributed to one of the first open-source large language models for the Telugu language, spoken by 80M+ people. Community-driven project under the Free Software Movement of India.',
       image:
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop',
-      tech: ['NestJS', 'Next.js', 'AWS', 'Cloud Integration'],
+        'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&auto=format&fit=crop',
+      tech: ['Python', 'LLM', 'Open Source', 'NLP'],
       github: '#',
-      demo: 'https://syncoffice.com/',
+      demo: '#',
     },
     {
-      title: 'TaxFriday',
+      title: 'PUFchain',
       description:
-        'AI-based fintech application automating 80% of manual efforts in e-filing of income tax. Implemented OCR for document processing and intelligent form filling using machine learning.',
+        'Blockchain-based IoHT authentication system using Physically Unclonable Functions (PUFs) and Zero-Knowledge Proofs (ZKPs). Published research under Dr. Samah Mansour at GVSU.',
       image:
-        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop',
-      tech: ['Python', 'React', 'OCR', 'Machine Learning'],
+        'https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop',
+      tech: ['Python', 'Blockchain', 'IoT Security', 'Distributed Systems'],
       github: '#',
       demo: '#',
     },

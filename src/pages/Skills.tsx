@@ -1,28 +1,32 @@
 export default function Skills() {
   const skillCategories = [
     {
-      title: 'Programming Languages',
-      skills: ['Python', 'JavaScript', 'TypeScript', 'Go', 'C', 'Java', 'Rust'],
+      title: 'Languages',
+      skills: ['Python', 'Go (Golang)', 'TypeScript', 'JavaScript', 'SQL'],
     },
     {
-      title: 'Frameworks',
-      skills: ['Django', 'Flask', 'Node.js', 'Next.js', 'NestJS', 'Express', 'React', 'Vue.js'],
+      title: 'Frontend',
+      skills: ['React.js', 'Next.js', 'TypeScript', 'HTML/CSS', 'Tailwind'],
+    },
+    {
+      title: 'Backend',
+      skills: ['NestJS', 'Node.js', 'Django', 'FastAPI', 'Express', 'REST APIs', 'gRPC', 'Kafka', 'Microservices'],
+    },
+    {
+      title: 'AI / ML',
+      skills: ['LangChain', 'OpenAI API', 'Anthropic API', 'Rasa', 'NLP', 'Sentiment Analysis', 'Machine Learning', 'LLMs'],
     },
     {
       title: 'Databases',
-      skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Neo4j', 'Elastic Search'],
+      skills: ['PostgreSQL', 'DynamoDB', 'MongoDB', 'Redis', 'MySQL', 'Supabase'],
     },
     {
       title: 'Cloud & DevOps',
-      skills: ['AWS EC2', 'AWS S3', 'Hetzner', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'GitLab CI'],
+      skills: ['AWS', 'Terraform', 'Docker', 'Kubernetes', 'CI/CD', 'Jenkins', 'GitHub Actions', 'Prometheus', 'Grafana', 'ELK Stack'],
     },
     {
-      title: 'Data Processing',
-      skills: ['Pandas', 'NLTK', 'ETL Pipelines', 'Data Visualization'],
-    },
-    {
-      title: 'Tools & Others',
-      skills: ['Git', 'Nginx', 'Apache', 'Gunicorn', 'Cypress', 'Agile', 'CI/CD'],
+      title: 'Other',
+      skills: ['RBAC', 'Cybersecurity', 'Incident Response', 'Agile', 'Scrum', 'Team Leadership'],
     },
   ]
 

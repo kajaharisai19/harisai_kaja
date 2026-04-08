@@ -120,7 +120,7 @@ export default function Certifications() {
           </div>
           <div className="bg-linear-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center">
             <Award className="w-10 h-10 text-purple-600 mx-auto mb-3" />
-            <p className="text-3xl font-bold text-gray-900 mb-1">7+</p>
+            <p className="text-3xl font-bold text-gray-900 mb-1">9+</p>
             <p className="text-gray-600">Years Experience</p>
           </div>
           <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-xl p-6 text-center">

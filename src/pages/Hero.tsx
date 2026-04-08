@@ -1,17 +1,17 @@
-import { ArrowRight, Mail} from 'lucide-react'
-import { FaGithub , FaLinkedinIn} from 'react-icons/fa'
+import { ArrowRight, Github, Linkedin, Mail, Twitter } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export default function Hero() {
   const [typedText, setTypedText] = useState('')
   const codeText = `const developer = {
   name: "Hari Sai Kaja",
-  role: "Software Engineer",
-  experience: "7+ years",
+  role: "Senior SWE | AI Engineer",
+  experience: "9+ years",
   skills: [
-    "Python", "JavaScript", "TypeScript",
-    "AWS", "Docker"
-  ]
+    "Python", "Go", "TypeScript",
+    "LLMs", "FastAPI", "AWS"
+  ],
+  location: "Grand Rapids, MI"
 };`
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Hero() {
     }, 30)
 
     return () => clearInterval(timer)
-  }, [codeText])
+  }, [])
 
   const scrollToProjects = () => {
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
@@ -37,48 +37,47 @@ export default function Hero() {
   }
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-950 via-blue-950 to-slate-950 pt-16 px-6"
-    >
-      <div className="max-w-7xl mx-auto w-full">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 px-6">
+      {/* Consistent gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
+      
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full">
+            <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full">
               <span className="text-blue-400 text-sm font-mono">&lt;/&gt;</span>
-              <span className="text-blue-400 text-sm">Software Engineer</span>
+              <span className="text-white text-sm">Senior SWE · AI Engineer · Full Stack</span>
             </div>
 
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                Building Scalable
+                Thriving at the
                 <br />
-                Cloud-Native
+                Intersection of
                 <br />
-                <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Solutions
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  AI & Human Experience
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed">
-                Results-driven Software Engineer with expertise in building scalable, secure, and
-                high-performance cloud systems. Currently pursuing Master's in Applied Computer
-                Science.
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+                Senior Software Engineer with 9+ years of experience building production-grade systems across healthcare, fintech, SaaS, and data engineering — from integrating LLMs into production platforms to leading engineering teams.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={scrollToProjects}
-                className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-200 hover:gap-3"
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl hover:gap-3"
               >
                 View Projects
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button
                 onClick={scrollToContact}
-                className="px-6 py-3 border-2 border-gray-700 hover:border-blue-600 text-white rounded-lg font-medium transition-all duration-200"
+                className="px-6 py-3 glass text-white rounded-full font-medium transition-all duration-200 hover:bg-white/20 shadow-lg"
               >
                 Get in Touch
               </button>
@@ -86,62 +85,54 @@ export default function Hero() {
 
             {/* Social Icons */}
             <div className="flex gap-4 pt-4">
-              <a
-                href="https://github.com/kajaharisai19"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-gray-800/50 hover:bg-gray-700 border border-gray-700 rounded-lg transition-colors"
-              >
-                <FaGithub className="w-5 h-5 text-gray-400" />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/kajaharisai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-gray-800/50 hover:bg-gray-700 border border-gray-700 rounded-lg transition-colors"
-              >
-                <FaLinkedinIn className="w-5 h-5 text-gray-400" />
-              </a>
-
-              <a
-                href="mailto:kaja.harisai19@gmail.com"
-                className="p-3 bg-gray-800/50 hover:bg-gray-700 border border-gray-700 rounded-lg transition-colors"
-              >
-                <Mail className="w-5 h-5 text-gray-400" />
-              </a>
+              {[
+                { icon: Github, href: 'https://github.com/kajaharisai' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/kajaharisai/' },
+                { icon: Twitter, href: 'https://twitter.com' },
+                { icon: Mail, href: 'mailto:kaja.harisai19@gmail.com' },
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 glass hover:bg-white/20 rounded-full transition-all duration-200"
+                >
+                  <social.icon className="w-5 h-5 text-white" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Right Content - Code Snippet */}
           <div className="relative">
-            <div className="bg-linear-to-br from-gray-900 to-gray-950 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+            <div className="glass-dark rounded-2xl shadow-2xl overflow-hidden">
               {/* Browser Header */}
-              <div className="flex items-center gap-2 px-4 py-3 bg-gray-800/50 border-b border-gray-700">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-gray-500 text-sm ml-4 font-mono">portfolio.js</span>
+                <span className="text-white/60 text-sm ml-4 font-mono">portfolio.js</span>
               </div>
 
               {/* Code Content */}
               <div className="p-6 font-mono text-sm md:text-base">
-                <pre className="text-gray-300">
+                <pre className="text-white/90">
                   <code>
-                    <span className="text-gray-500">// portfolio.js</span>
+                    <span className="text-white/50">// portfolio.js</span>
                     {'\n'}
-                    <span className="text-cyan-400">{typedText}</span>
-                    <span className="animate-pulse text-cyan-400">|</span>
+                    <span className="text-cyan-300">{typedText}</span>
+                    <span className="animate-pulse text-cyan-300">|</span>
                   </code>
                 </pre>
               </div>
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute -top-4 -right-4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-4 -left-4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl"></div>
           </div>
         </div>
       </div>

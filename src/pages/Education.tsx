@@ -3,24 +3,37 @@ import { GraduationCap, Award, Users } from 'lucide-react'
 export default function Education() {
   const education = [
     {
-      degree: 'Master of Science, Applied Computer Science',
+      degree: 'M.S. Applied Computer Science (Cyber Security)',
       institution: 'Grand Valley State University',
       location: 'Grand Rapids, Michigan',
       gpa: '3.89',
-      period: 'Expected May 2026',
+      period: '2024 – 2026',
+      note: "Dean's Honor List, Fall 2025",
     },
     {
-      degree: 'Bachelor of Technology, Electronics and Communication Engineering',
-      institution: 'Jawaharlal Nehru Technological University',
+      degree: 'PGSSP Statistical Methods in AI',
+      institution: 'IIIT Hyderabad',
       location: 'Hyderabad, India',
-      gpa: '3.5',
-      period: 'Jun 2017',
+      gpa: '',
+      period: 'Jan 2018 – Apr 2018',
+      note: '',
+    },
+    {
+      degree: 'B.Tech Electronics & Communication Engineering',
+      institution: 'MIST',
+      location: 'India',
+      gpa: '',
+      period: '2013 – 2017',
+      note: '',
     },
   ]
 
   const achievements = [
-    'Winner, Consensus 2.0 Hackathon - 2019',
-    'Special Appreciation Award, Vitwit Technologies - 2019',
+    "Dean's Honor List — Grand Valley State University, Fall 2025",
+    'Special Appreciation Award — Vitwit Technologies (2019), for Sana AI chatbot built in 24 hours',
+    'Winner — Consensus 2.0 Hackathon (2019)',
+    'Speaker — DebConf 2021 (Debian Global Conference): Security & Infrastructure',
+    'Tech Speaker — 20+ national and international conferences',
   ]
 
   const extracurricular = [
@@ -69,11 +82,13 @@ export default function Education() {
                 <p className="text-blue-600 font-semibold mb-2">{edu.institution}</p>
                 <div className="flex flex-wrap gap-4 text-gray-600 text-sm">
                   <span>{edu.location}</span>
-                  <span>•</span>
-                  <span>GPA: {edu.gpa}</span>
+                  {edu.gpa && <><span>•</span><span>GPA: {edu.gpa}</span></>}
                   <span>•</span>
                   <span>{edu.period}</span>
                 </div>
+                {edu.note && (
+                  <p className="mt-2 text-sm text-blue-600 font-medium">{edu.note}</p>
+                )}
               </div>
             ))}
           </div>

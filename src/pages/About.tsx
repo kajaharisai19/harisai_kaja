@@ -3,38 +3,38 @@ import { CheckCircle, Code, Palette, Cloud, Database } from 'lucide-react'
 export default function About() {
   const highlights = [
     {
-      title: 'Cloud-Native Solutions',
-      description: 'Expert in building scalable, secure cloud systems on AWS',
+      title: 'AI & LLM Integration',
+      description: 'Integrating OpenAI and Anthropic APIs into production platforms across healthcare and fintech',
     },
     {
-      title: 'Team Leadership',
-      description: 'Experience leading backend teams and R&D initiatives',
+      title: 'Team Leadership & Architecture',
+      description: 'Led teams of 5+ engineers, designed end-to-end system architecture, and managed client relationships',
     },
     {
-      title: 'Problem Solver',
-      description: 'Translating complex research into production-grade applications',
+      title: 'Open Source & Community',
+      description: 'Contributed to Telugu LLM, PyConf organiser, DebConf speaker, tech speaker at 20+ conferences',
     },
   ]
 
   const expertise = [
     {
-      title: 'Backend Development',
-      skills: 'Python, Node.js, NestJS, Django, Flask',
+      title: 'AI / ML Engineering',
+      skills: 'LangChain, OpenAI API, Anthropic API, Rasa, NLP, LLMs, Machine Learning',
       icon: Code,
     },
     {
-      title: 'Frontend Development',
-      skills: 'React, Next.js, TypeScript, Vue.js',
+      title: 'Full Stack Development',
+      skills: 'React, Next.js, TypeScript, NestJS, Node.js, Django, FastAPI',
       icon: Palette,
     },
     {
-      title: 'DevOps & Cloud',
-      skills: 'AWS, Docker, Kubernetes, CI/CD, Terraform',
+      title: 'Cloud & DevOps',
+      skills: 'AWS, Terraform, Docker, Kubernetes, CI/CD, Prometheus, Grafana',
       icon: Cloud,
     },
     {
       title: 'Data Engineering',
-      skills: 'ETL Pipelines, PostgreSQL, MongoDB, Pandas',
+      skills: 'Apache Kafka, ELK Stack, PostgreSQL, DynamoDB, Redis, ETL Pipelines',
       icon: Database,
     },
   ]
@@ -61,10 +61,10 @@ export default function About() {
           {/* Right - Content */}
           <div className="space-y-6">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Results-driven Software Engineer with a strong background in building scalable, secure, and high-performance cloud systems. Adept at translating complex design and research concepts into production-grade applications that enhance efficiency and user experience.
+              Senior Software Engineer with 9+ years of experience building production-grade systems across healthcare, fintech, SaaS, and data engineering. Passionate about working at the intersection of AI and human experience — from integrating LLMs into production platforms to leading engineering teams.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Currently pursuing Master's in Applied Computer Science, I bring a blend of technical depth, problem-solving skills, and collaborative mindset focused on developing innovative, cloud-native solutions.
+              Currently pursuing a Master's in Applied Computer Science (Cyber Security) at GVSU with a 3.89 GPA, and contributing to open-source communities including a Telugu language LLM and the Debian global conference.
             </p>
 
             <div className="space-y-4 pt-4">
