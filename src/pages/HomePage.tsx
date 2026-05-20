@@ -3,10 +3,11 @@ import Hero from './Hero'
 import About from './About'
 import Experience from './Experience'
 import Projects from './Projects'
+import Research from './Research'
 import Skills from './Skills'
+import Certifications from './Certifications'
 import Education from './Education'
 import Contact from './Contact'
-import Certifications from './Certifications'
 
 export default function Home() {
   return (
@@ -16,13 +17,14 @@ export default function Home() {
       <About />
       <Experience />
       <Projects />
+      <Research />
       <Skills />
       <Certifications />
       <Education />
       <Contact />
       <footer className="bg-gray-900 border-t border-gray-800 py-8">
         <div className="max-w-6xl mx-auto px-6 text-center text-gray-400">
-          <p>© 2025 Hari Sai Kaja. Built with React & Tailwind CSS.</p>
+          <p>© 2026 Hari Sai Kaja. Built with React & Tailwind CSS.</p>
         </div>
       </footer>
     </div>

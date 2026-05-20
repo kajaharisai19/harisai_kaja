@@ -1,40 +1,43 @@
-import { CheckCircle, Code, Palette, Cloud, Database } from 'lucide-react'
+import { CheckCircle, Code, Layers, Cloud, Database } from 'lucide-react'
 
 export default function About() {
   const highlights = [
     {
-      title: 'AI & LLM Integration',
-      description: 'Integrating OpenAI and Anthropic APIs into production platforms across healthcare and fintech',
+      title: 'AI-Enabled Systems',
+      description:
+        'Built LLM-integrated clinical simulation platforms using MCP, OpenAI, and Anthropic APIs. Contributed to the Swecha Telugu LLM and applied NLP/sentiment analysis in production fintech and media platforms.',
     },
     {
-      title: 'Team Leadership & Architecture',
-      description: 'Led teams of 5+ engineers, designed end-to-end system architecture, and managed client relationships',
+      title: 'Full-Stack Architecture & Technical Leadership',
+      description:
+        'Led end-to-end architecture of enterprise SaaS platforms, microservices backends, and cloud-native systems. Drove sprint planning, architecture reviews, and client-facing delivery as the primary technical voice.',
     },
     {
-      title: 'Open Source & Community',
-      description: 'Contributed to Telugu LLM, PyConf organiser, DebConf speaker, tech speaker at 20+ conferences',
+      title: 'Research & Open Source',
+      description:
+        'Published 2 peer-reviewed papers on IoHT security. Managing Member of the Python Software Foundation. Speaker at DebConf 2021 and 20+ national and international conferences.',
     },
   ]
 
   const expertise = [
     {
-      title: 'AI / ML Engineering',
-      skills: 'LangChain, OpenAI API, Anthropic API, Rasa, NLP, LLMs, Machine Learning',
+      title: 'AI / LLM Engineering',
+      skills: 'MCP, OpenAI API, Anthropic API, LangChain, RAG, NLP, Rasa',
       icon: Code,
     },
     {
-      title: 'Full Stack Development',
-      skills: 'React, Next.js, TypeScript, NestJS, Node.js, Django, FastAPI',
-      icon: Palette,
+      title: 'Full-Stack Development',
+      skills: 'React, Next.js, TypeScript, NestJS, FastAPI, Django, shadcn/ui',
+      icon: Layers,
     },
     {
       title: 'Cloud & DevOps',
-      skills: 'AWS, Terraform, Docker, Kubernetes, CI/CD, Prometheus, Grafana',
+      skills: 'AWS, Terraform, Docker, Kubernetes, Helm, Lambda, CloudWatch',
       icon: Cloud,
     },
     {
-      title: 'Data Engineering',
-      skills: 'Apache Kafka, ELK Stack, PostgreSQL, DynamoDB, Redis, ETL Pipelines',
+      title: 'Data & Streaming',
+      skills: 'Kafka, Apache Druid, Elasticsearch, PostgreSQL, DynamoDB, Redis, ETL',
       icon: Database,
     },
   ]
@@ -47,9 +50,9 @@ export default function About() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left - Image with Fallback */}
+          {/* Left - Monogram */}
           <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-linear-to-br from-blue-500 via-purple-500 to-cyan-500 flex items-center justify-center shadow-2xl">
+            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 flex items-center justify-center shadow-2xl">
               <div className="text-center">
                 <span className="text-white text-8xl font-bold block mb-2">HSK</span>
                 <span className="text-white/80 text-xl">Hari Sai Kaja</span>
@@ -61,10 +64,10 @@ export default function About() {
           {/* Right - Content */}
           <div className="space-y-6">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Senior Software Engineer with 9+ years of experience building production-grade systems across healthcare, fintech, SaaS, and data engineering. Passionate about working at the intersection of AI and human experience — from integrating LLMs into production platforms to leading engineering teams.
+              Senior Software Engineer with 9+ years of experience building production systems across healthcare, fintech, SaaS, media, and IoT. I design and ship full-stack platforms, lead engineering teams, and integrate AI and LLMs into real products — not demos.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Currently pursuing a Master's in Applied Computer Science (Cyber Security) at GVSU with a 3.89 GPA, and contributing to open-source communities including a Telugu language LLM and the Debian global conference.
+              Currently finishing an M.S. in Applied Computer Science (Cyber Security) at GVSU (GPA 3.89, Dean's Honor List) while building an AI-assisted clinical simulation platform for nursing education. I care about systems that are secure, scalable, and owned — not just assembled.
             </p>
 
             <div className="space-y-4 pt-4">

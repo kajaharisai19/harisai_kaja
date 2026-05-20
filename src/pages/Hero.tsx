@@ -1,15 +1,18 @@
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from 'lucide-react'
+import { ArrowRight, Github, Linkedin, Mail, FileText } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export default function Hero() {
   const [typedText, setTypedText] = useState('')
-  const codeText = `const developer = {
+  const codeText = `const engineer = {
   name: "Hari Sai Kaja",
-  role: "Senior SWE | AI Engineer",
+  role: "Senior SWE | AI Systems | Tech Lead",
   experience: "9+ years",
-  skills: [
-    "Python", "Go", "TypeScript",
-    "LLMs", "FastAPI", "AWS"
+  stack: [
+    "Python", "TypeScript", "React",
+    "AWS", "LLMs", "MCP"
+  ],
+  domains: [
+    "Healthcare", "FinTech", "SaaS", "IoT"
   ],
   location: "Grand Rapids, MI"
 };`
@@ -23,7 +26,7 @@ export default function Hero() {
       } else {
         clearInterval(timer)
       }
-    }, 30)
+    }, 28)
 
     return () => clearInterval(timer)
   }, [])
@@ -38,32 +41,31 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 px-6">
-      {/* Consistent gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
-      
+
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full">
               <span className="text-blue-400 text-sm font-mono">&lt;/&gt;</span>
-              <span className="text-white text-sm">Senior SWE · AI Engineer · Full Stack</span>
+              <span className="text-white text-sm">Senior SWE · AI Systems · Technical Lead</span>
             </div>
 
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                Thriving at the
+                Building Systems
                 <br />
-                Intersection of
+                That Scale with
                 <br />
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  AI & Human Experience
+                  AI at the Core
                 </span>
               </h1>
 
               <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-                Senior Software Engineer with 9+ years of experience building production-grade systems across healthcare, fintech, SaaS, and data engineering — from integrating LLMs into production platforms to leading engineering teams.
+                Senior Software Engineer with 9+ years delivering production systems across healthcare, fintech, SaaS, and data engineering. I architect full-stack platforms, lead engineering teams, and integrate LLMs and AI into real products — from clinical simulation tools to enterprise collaboration SaaS.
               </p>
             </div>
 
@@ -86,16 +88,17 @@ export default function Hero() {
             {/* Social Icons */}
             <div className="flex gap-4 pt-4">
               {[
-                { icon: Github, href: 'https://github.com/kajaharisai' },
-                { icon: Linkedin, href: 'https://www.linkedin.com/in/kajaharisai/' },
-                { icon: Twitter, href: 'https://twitter.com' },
-                { icon: Mail, href: 'mailto:kaja.harisai19@gmail.com' },
+                { icon: Github, href: 'https://github.com/kajaharisai19', label: 'GitHub' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/kajaharisai/', label: 'LinkedIn' },
+                { icon: Mail, href: 'mailto:kaja.harisai19@gmail.com', label: 'Email' },
+                { icon: FileText, href: '/HariSaiKaja_FullStack.pdf', label: 'Resume' },
               ].map((social, i) => (
                 <a
                   key={i}
                   href={social.href}
-                  target="_blank"
+                  target={social.href.startsWith('mailto') ? '_self' : '_blank'}
                   rel="noopener noreferrer"
+                  aria-label={social.label}
                   className="p-3 glass hover:bg-white/20 rounded-full transition-all duration-200"
                 >
                   <social.icon className="w-5 h-5 text-white" />
@@ -114,14 +117,14 @@ export default function Hero() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-white/60 text-sm ml-4 font-mono">portfolio.js</span>
+                <span className="text-white/60 text-sm ml-4 font-mono">engineer.ts</span>
               </div>
 
               {/* Code Content */}
               <div className="p-6 font-mono text-sm md:text-base">
                 <pre className="text-white/90">
                   <code>
-                    <span className="text-white/50">// portfolio.js</span>
+                    <span className="text-white/50">// engineer.ts</span>
                     {'\n'}
                     <span className="text-cyan-300">{typedText}</span>
                     <span className="animate-pulse text-cyan-300">|</span>

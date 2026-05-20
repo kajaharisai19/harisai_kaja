@@ -3,74 +3,64 @@ import { ExternalLink } from 'lucide-react'
 export default function Projects() {
   const projects = [
     {
-      title: 'LLM Clinical Simulation Platform',
+      title: 'Blue Nucleus — Clinical Simulation Platform',
       description:
-        'AI-powered platform for nursing education at GVSU where faculty enter patient diagnostics as a prompt and the LLM generates complete clinical cases and patient charts for simulation labs. Co-ideated the product; led UX design, RBAC, and security architecture.',
-      image:
-        'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop',
-      tech: ['Next.js', 'OpenAI API', 'Anthropic API', 'Supabase', 'PostgreSQL', 'TypeScript'],
-      github: '#',
-      demo: '#',
+        'AI-assisted simulation platform for the GVSU College of Nursing. Faculty enter patient diagnostics as a prompt; the system generates complete clinical cases and patient charts for student simulation labs. Owned full-stack architecture from data modeling to UI.',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop',
+      tech: ['Next.js', 'TypeScript', 'MCP', 'Anthropic API', 'shadcn/ui', 'Supabase', 'PostgreSQL'],
+      role: 'Full-Stack Owner & AI Integration Lead',
+      outcome: 'Piloted with GVSU College of Nursing; positive faculty and student feedback.',
+      demo: null,
     },
     {
-      title: 'Sana AI Chatbot',
+      title: 'SyncOffice — Enterprise Collaboration SaaS',
       description:
-        'AI assistant chatbot built in under 24 hours using Rasa. Won Special Appreciation Award at Vitwit Technologies. Demonstrated rapid LLM-adjacent prototyping and conversational AI design.',
-      image:
-        'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&auto=format&fit=crop',
-      tech: ['Rasa', 'Python'],
-      github: '#',
-      demo: '#',
+        'Led modernization and cloud-native rebuild of an enterprise SaaS platform used by healthcare providers, universities, and CA firms. Took a legacy PHP/React codebase to a production-grade Next.js + NestJS platform with modern security, Blue-Green deployments, and 60% cost reduction.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop',
+      tech: ['Next.js', 'NestJS', 'shadcn/ui', 'PostgreSQL', 'DynamoDB', 'AWS', 'Terraform', 'Docker', 'Kubernetes'],
+      role: 'Architect & Tech Lead',
+      outcome: 'Deployed overnight → minutes; ~60% cloud cost reduction; 12TB+ document migration.',
+      demo: null,
     },
     {
-      title: 'Tax Filing Assistant',
+      title: 'TallyCloud — Web Interface for Tally Accounting',
       description:
-        'Conversational Rasa chatbot that analyses tax returns and recommends personalised tax-saving strategies. Built for a fintech client with a React + Node.js frontend.',
-      image:
-        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop',
-      tech: ['Rasa', 'Node.js', 'React', 'Python'],
-      github: '#',
-      demo: '#',
+        'Designed and built TallyCloud to enable clients to access on-premise Tally accounting software through a browser-based interface. Ran requirements discovery with 3 CA firm clients managing multiple branches and 2,000+ end clients each.',
+      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&auto=format&fit=crop',
+      tech: ['Next.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'AWS'],
+      role: 'Product Owner & Full-Stack Engineer',
+      outcome: 'Delivered for 3 chartered accountant firms, each with 2,000+ end clients.',
+      demo: null,
     },
     {
-      title: 'Social Media Intelligence Platform',
+      title: 'NewsClick COVID-19 Data Intelligence Platform',
       description:
-        'Ingests public web and social data via boolean keyword queries, then runs NLP contextual sentiment analysis to classify content as positive, negative, or moderate. Backend led at Vitwit Technologies.',
-      image:
-        'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format&fit=crop',
-      tech: ['Python', 'NLP', 'Sentiment Analysis', 'PostgreSQL'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'COVID-19 Prediction Model',
-      description:
-        'ML model predicting COVID-19 case trends integrated into a live public health dashboard at NewsClick.in during the pandemic. Paired with Kafka-based real-time streaming pipelines.',
-      image:
-        'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&auto=format&fit=crop',
-      tech: ['Python', 'Machine Learning', 'Apache Kafka', 'ELK Stack'],
-      github: '#',
+        'Architected and delivered a COVID-19 data intelligence platform used by national news media. Solved extraction of structured data from newspapers, social media, and online sources using KDD methodology. Also built a live election results dashboard with real-time vote counting and historical analysis.',
+      image: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&auto=format&fit=crop',
+      tech: ['Python', 'Apache Druid', 'PostgreSQL', 'Next.js', 'React Charts', 'MongoDB', 'GraphQL', 'Jenkins CI'],
+      role: 'Data Engineer & Tech Lead',
+      outcome: 'Used by national news media during the pandemic; election dashboard served real-time results.',
       demo: 'https://viz.newsclick.in/covid19-cases-graphs-maps-india-world',
     },
     {
-      title: 'Swecha Gonthuka (Telugu LLM)',
+      title: 'PUFchain — Secure IoHT Authentication',
       description:
-        'Contributed to one of the first open-source large language models for the Telugu language, spoken by 80M+ people. Community-driven project under the Free Software Movement of India.',
-      image:
-        'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&auto=format&fit=crop',
-      tech: ['Python', 'LLM', 'Open Source', 'NLP'],
-      github: '#',
-      demo: '#',
+        'Research project on a blockchain-based authentication system for IoT healthcare (IoHT) devices using Physically Unclonable Functions (PUFs) and Zero-Knowledge Proofs (ZKPs). Designed for resource-constrained edge nodes. Hardware-validated and published as a peer-reviewed paper (2026).',
+      image: 'https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop',
+      tech: ['Python', 'Blockchain', 'ZKP', 'IoT Security', 'Distributed Systems', 'Hardware Prototyping'],
+      role: 'Research Engineer (GVSU)',
+      outcome: 'Published: PUFchain — Secure IoHT Authentication via PUFs, ZKPs, and Blockchain (2026).',
+      demo: null,
     },
     {
-      title: 'PUFchain',
+      title: 'Swecha Telugu LLM',
       description:
-        'Blockchain-based IoHT authentication system using Physically Unclonable Functions (PUFs) and Zero-Knowledge Proofs (ZKPs). Published research under Dr. Samah Mansour at GVSU.',
-      image:
-        'https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop',
-      tech: ['Python', 'Blockchain', 'IoT Security', 'Distributed Systems'],
-      github: '#',
-      demo: '#',
+        'Contributor to the Swecha Gonthuka project — one of the first open-source large language models for the Telugu language, spoken by 80M+ people. Developed under the Free Software Movement of India as a community-driven initiative.',
+      image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&auto=format&fit=crop',
+      tech: ['Python', 'LLM', 'NLP', 'Open Source'],
+      role: 'Contributor — Swecha / Free Software Movement of India',
+      outcome: 'Community-use Telugu LLM; one of the first for the language.',
+      demo: null,
     },
   ]
 
@@ -78,15 +68,10 @@ export default function Projects() {
     <section id="projects" className="min-h-screen bg-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">
-            Portfolio
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
-            Featured Projects
-          </h2>
+          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Portfolio</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Featured Work</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Here are some of my notable projects that showcase my expertise in building scalable
-            applications and solving real-world problems.
+            Production systems, applied research, and open source — each reflecting real ownership, architecture decisions, and measurable outcomes.
           </p>
         </div>
 
@@ -94,7 +79,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group"
+              className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group flex flex-col"
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden bg-gray-100">
@@ -106,9 +91,15 @@ export default function Projects() {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4 text-sm">{project.description}</p>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{project.title}</h3>
+                <p className="text-xs font-semibold text-blue-600 mb-3">{project.role}</p>
+                <p className="text-gray-600 mb-3 text-sm leading-relaxed flex-1">{project.description}</p>
+
+                {/* Outcome */}
+                <p className="text-xs text-gray-500 italic mb-4 border-l-2 border-blue-200 pl-3">
+                  {project.outcome}
+                </p>
 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -122,9 +113,9 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  {project.demo !== '#' ? (
+                {/* Action */}
+                <div className="flex gap-3 mt-auto">
+                  {project.demo ? (
                     <a
                       href={project.demo}
                       target="_blank"
@@ -135,9 +126,9 @@ export default function Projects() {
                       View Live
                     </a>
                   ) : (
-                    <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-500 rounded-lg text-sm font-medium flex-1 justify-center cursor-not-allowed">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-500 rounded-lg text-sm font-medium flex-1 justify-center">
                       <ExternalLink className="w-4 h-4" />
-                      Private Project
+                      Private / Research
                     </div>
                   )}
                 </div>

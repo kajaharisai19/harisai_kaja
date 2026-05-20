@@ -13,8 +13,8 @@ export default function Navigation() {
     { name: 'About', hash: '#about' },
     { name: 'Experience', hash: '#experience' },
     { name: 'Projects', hash: '#projects' },
+    { name: 'Research', hash: '#research' },
     { name: 'Skills', hash: '#skills' },
-    { name: 'Certifications', hash: '#certifications' },
     { name: 'Contact', hash: '#contact' },
   ]
 
