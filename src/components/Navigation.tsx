@@ -1,6 +1,22 @@
-import { Menu, X, LogIn } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, FileText } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
+
+const navItems = [
+  { name: 'About', hash: '#about' },
+  { name: 'Experience', hash: '#experience' },
+  { name: 'Projects', hash: '#projects' },
+  { name: 'Research', hash: '#research' },
+  { name: 'Skills', hash: '#skills' },
+  { name: 'Contact', hash: '#contact' },
+]
+
+const socials = [
+  { icon: Github, href: 'https://github.com/kajaharisai19', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/kajaharisai/', label: 'LinkedIn' },
+  { icon: Mail, href: 'mailto:kaja.harisai19@gmail.com', label: 'Email' },
+]
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,150 +25,167 @@ export default function Navigation() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const navItems = [
-    { name: 'About', hash: '#about' },
-    { name: 'Experience', hash: '#experience' },
-    { name: 'Projects', hash: '#projects' },
-    { name: 'Research', hash: '#research' },
-    { name: 'Skills', hash: '#skills' },
-    { name: 'Contact', hash: '#contact' },
-  ]
-
   const scrollToSection = (hash: string) => {
     setIsOpen(false)
     if (location.pathname !== '/') {
       navigate('/')
       setTimeout(() => {
-        const element = document.querySelector(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
       }, 100)
     } else {
-      const element = document.querySelector(hash)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
+      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
-
-      const sections = navItems.map(item => item.hash.substring(1))
-      const scrollPosition = window.scrollY + 100
-
+      const sections = navItems.map((item) => item.hash.substring(1))
+      const scrollPosition = window.scrollY + 120
       for (const sectionId of sections) {
         const section = document.getElementById(sectionId)
         if (section) {
-          const sectionTop = section.offsetTop
-          const sectionHeight = section.offsetHeight
-
-          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          const top = section.offsetTop
+          if (scrollPosition >= top && scrollPosition < top + section.offsetHeight) {
             setActiveSection(sectionId)
             break
           }
         }
       }
     }
-
     window.addEventListener('scroll', handleScroll)
     handleScroll()
-
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'glass-white shadow-xl'
-          : 'glass-dark'
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b border-border backdrop-blur-md transition-all duration-300 ${
+        scrolled ? 'bg-background/60 shadow-sm' : 'bg-background/95'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Left: avatar + name */}
           <button
             onClick={() => {
               navigate('/')
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="text-2xl font-bold text-white"
+            className="group flex items-center gap-3"
           >
-            Hari<span className="text-blue-400">Dev</span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-sm font-bold text-primary-foreground shadow-glow-primary">
+              HSK
+            </span>
+            <span className="font-headline text-lg font-bold text-foreground">
+              Hari Sai <span className="text-primary">Kaja</span>
+            </span>
           </button>
 
-          <div className="hidden md:flex items-center space-x-1">
+          {/* Center: nav links */}
+          <nav className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => {
-              const sectionId = item.hash.substring(1)
-              const isActive = activeSection === sectionId
-
+              const isActive = activeSection === item.hash.substring(1)
               return (
                 <button
                   key={item.hash}
                   onClick={() => scrollToSection(item.hash)}
-                  className={`px-4 py-2 rounded-full transition-all duration-200 font-medium ${
+                  className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-white/20 text-white shadow-lg'
-                      : 'text-white/70 hover:text-white hover:bg-white/10'
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                   }`}
                 >
                   {item.name}
                 </button>
               )
             })}
+          </nav>
+
+          {/* Right: socials + resume + theme toggle + mobile menu */}
+          <div className="flex items-center gap-2">
+            <div className="hidden items-center gap-1 sm:flex">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith('mailto') ? '_self' : '_blank'}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+                >
+                  <s.icon className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
+
+            <a
+              href="/HariSaiKaja_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center gap-2 rounded-md bg-primary px-3.5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 sm:inline-flex"
+            >
+              <FileText className="h-4 w-4" />
+              Resume
+            </a>
+
+            <ThemeToggle />
 
             <button
-              onClick={() => navigate('/login')}
-              className="flex items-center gap-2 px-5 py-2 ml-4 bg-linear-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full transition-all duration-200 shadow-lg hover:shadow-xl font-medium"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted lg:hidden"
             >
-              <LogIn className="w-4 h-4" />
-              Login
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
 
+        {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-2 glass-white rounded-b-2xl shadow-xl mt-2">
+          <div className="mt-2 space-y-1 rounded-lg border border-border bg-card/80 p-2 shadow-lg backdrop-blur-md lg:hidden">
             {navItems.map((item) => {
-              const sectionId = item.hash.substring(1)
-              const isActive = activeSection === sectionId
-
+              const isActive = activeSection === item.hash.substring(1)
               return (
                 <button
                   key={item.hash}
                   onClick={() => scrollToSection(item.hash)}
-                  className={`block w-full text-left px-4 py-3 mx-2 transition-all font-medium rounded-xl ${
+                  className={`block w-full rounded-md px-4 py-2.5 text-left text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-blue-500 text-white shadow-md'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                   }`}
                 >
                   {item.name}
                 </button>
               )
             })}
-            <button
-              onClick={() => {
-                setIsOpen(false)
-                navigate('/login')
-              }}
-              className="flex items-center justify-center gap-2 w-11/12 mx-auto px-4 py-3 bg-linear-to-r from-blue-500 to-cyan-500 text-white rounded-xl transition-colors font-medium shadow-lg mt-2"
-            >
-              <LogIn className="w-4 h-4" />
-              Login
-            </button>
+            <div className="flex items-center gap-2 px-2 pt-2">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith('mailto') ? '_self' : '_blank'}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+                >
+                  <s.icon className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+              <a
+                href="/HariSaiKaja_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-auto inline-flex items-center gap-2 rounded-md bg-primary px-3.5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                <FileText className="h-4 w-4" />
+                Resume
+              </a>
+            </div>
           </div>
         )}
       </div>
-    </nav>
+    </header>
   )
 }

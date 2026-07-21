@@ -1,4 +1,5 @@
 import Navigation from '../components/Navigation'
+import ChatbotButton from '../components/ChatbotButton'
 import Hero from './Hero'
 import About from './About'
 import Experience from './Experience'
@@ -11,22 +12,25 @@ import Contact from './Contact'
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-app min-h-screen text-foreground">
       <Navigation />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Research />
-      <Skills />
-      <Certifications />
-      <Education />
-      <Contact />
-      <footer className="bg-gray-900 border-t border-gray-800 py-8">
-        <div className="max-w-6xl mx-auto px-6 text-center text-gray-400">
-          <p>© 2026 Hari Sai Kaja. Built with React & Tailwind CSS.</p>
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Research />
+        <Skills />
+        <Certifications />
+        <Education />
+        <Contact />
+      </main>
+      <footer className="border-t border-border py-8">
+        <div className="mx-auto max-w-6xl px-6 text-center text-sm text-muted-foreground">
+          <p>© 2026 Hari Sai Kaja. Built with React &amp; Tailwind CSS.</p>
         </div>
       </footer>
+      <ChatbotButton />
     </div>
   )
 }

@@ -1,16 +1,32 @@
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Lock } from 'lucide-react'
+import { useMemo, useState } from 'react'
+import Reveal from '../components/Reveal'
+import SectionHeading from '../components/SectionHeading'
 
-export default function Projects() {
-  const projects = [
+type Category = 'AI / LLM' | 'Full-Stack' | 'Data' | 'Research'
+
+interface Project {
+  title: string
+  description: string
+  image: string
+  tech: string[]
+  role: string
+  outcome: string
+  demo: string | null
+  category: Category
+}
+
+const projects: Project[] = [
     {
       title: 'Blue Nucleus — Clinical Simulation Platform',
       description:
-        'AI-assisted simulation platform for the GVSU College of Nursing. Faculty enter patient diagnostics as a prompt; the system generates complete clinical cases and patient charts for student simulation labs. Owned full-stack architecture from data modeling to UI.',
+        'Took an AI-driven clinical-simulation platform from 0 to 1, architected end to end on Next.js + Supabase and piloted live with nursing faculty. Built an agentic AI layer with MCP and custom agents over Claude and Gemini, plus RAG, turning static clinical data into adaptive, real-time simulations.',
       image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop',
-      tech: ['Next.js', 'TypeScript', 'MCP', 'Anthropic API', 'shadcn/ui', 'Supabase', 'PostgreSQL'],
+      tech: ['Next.js', 'TypeScript', 'MCP', 'Claude', 'Gemini', 'RAG', 'Supabase', 'PostgreSQL'],
       role: 'Full-Stack Owner & AI Integration Lead',
-      outcome: 'Piloted with GVSU College of Nursing; positive faculty and student feedback.',
+      outcome: 'Cut manual facilitation effort 40%; piloted live with GVSU nursing faculty.',
       demo: null,
+      category: 'AI / LLM',
     },
     {
       title: 'SyncOffice — Enterprise Collaboration SaaS',
@@ -21,6 +37,7 @@ export default function Projects() {
       role: 'Architect & Tech Lead',
       outcome: 'Deployed overnight → minutes; ~60% cloud cost reduction; 12TB+ document migration.',
       demo: null,
+      category: 'Full-Stack',
     },
     {
       title: 'TallyCloud — Web Interface for Tally Accounting',
@@ -31,6 +48,7 @@ export default function Projects() {
       role: 'Product Owner & Full-Stack Engineer',
       outcome: 'Delivered for 3 chartered accountant firms, each with 2,000+ end clients.',
       demo: null,
+      category: 'Full-Stack',
     },
     {
       title: 'NewsClick COVID-19 Data Intelligence Platform',
@@ -41,6 +59,7 @@ export default function Projects() {
       role: 'Data Engineer & Tech Lead',
       outcome: 'Used by national news media during the pandemic; election dashboard served real-time results.',
       demo: 'https://viz.newsclick.in/covid19-cases-graphs-maps-india-world',
+      category: 'Data',
     },
     {
       title: 'PUFchain — Secure IoHT Authentication',
@@ -51,6 +70,7 @@ export default function Projects() {
       role: 'Research Engineer (GVSU)',
       outcome: 'Published: PUFchain — Secure IoHT Authentication via PUFs, ZKPs, and Blockchain (2026).',
       demo: null,
+      category: 'Research',
     },
     {
       title: 'Swecha Telugu LLM',
@@ -61,79 +81,125 @@ export default function Projects() {
       role: 'Contributor — Swecha / Free Software Movement of India',
       outcome: 'Community-use Telugu LLM; one of the first for the language.',
       demo: null,
+      category: 'AI / LLM',
+    },
+    {
+      title: 'MathMentor AI — Adaptive Tutoring System',
+      description:
+        'A hybrid LLM-based adaptive tutoring system with knowledge tracing that personalizes math instruction to each learner, paired with critical AI-literacy training so students learn to use AI responsibly rather than blindly.',
+      image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&auto=format&fit=crop',
+      tech: ['Python', 'LLM', 'Knowledge Tracing', 'RAG', 'Adaptive Learning'],
+      role: 'Builder — Applied AI Project',
+      outcome: 'Adaptive tutoring with knowledge tracing and AI-literacy training.',
+      demo: null,
+      category: 'AI / LLM',
     },
   ]
 
+const tabs: ('All' | Category)[] = ['All', 'AI / LLM', 'Full-Stack', 'Data', 'Research']
+
+export default function Projects() {
+  const [active, setActive] = useState<'All' | Category>('All')
+
+  const filtered = useMemo(
+    () => (active === 'All' ? projects : projects.filter((p) => p.category === active)),
+    [active],
+  )
+
   return (
-    <section id="projects" className="min-h-screen bg-white py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Portfolio</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Featured Work</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Production systems, applied research, and open source — each reflecting real ownership, architecture decisions, and measurable outcomes.
-          </p>
-        </div>
+    <section id="projects" className="py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeading
+          tagline="Portfolio"
+          title="Featured Work"
+          subtitle="Production systems, applied research, and open source — each reflecting real ownership, architecture decisions, and measurable outcomes."
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group flex flex-col"
-            >
-              {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-gray-100">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
+        {/* Tabs */}
+        <Reveal className="mb-12 flex justify-center">
+          <div
+            role="tablist"
+            aria-label="Filter projects by category"
+            className="flex flex-wrap justify-center gap-1 rounded-full border border-border bg-background/50 p-1 backdrop-blur-sm"
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                role="tab"
+                aria-selected={active === tab}
+                onClick={() => setActive(tab)}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                  active === tab
+                    ? 'bg-primary text-primary-foreground shadow-glow-primary'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
-              {/* Project Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{project.title}</h3>
-                <p className="text-xs font-semibold text-blue-600 mb-3">{project.role}</p>
-                <p className="text-gray-600 mb-3 text-sm leading-relaxed flex-1">{project.description}</p>
-
-                {/* Outcome */}
-                <p className="text-xs text-gray-500 italic mb-4 border-l-2 border-blue-200 pl-3">
-                  {project.outcome}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((project, index) => (
+            <Reveal key={project.title} delay={(index % 3) * 90}>
+              <div className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-background/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow-primary">
+                <div className="relative h-48 overflow-hidden bg-muted">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                  <span className="absolute right-3 top-3 rounded-full border border-border bg-background/80 px-2.5 py-1 text-xs font-medium text-primary backdrop-blur-sm">
+                    {project.category}
+                  </span>
                 </div>
 
-                {/* Action */}
-                <div className="flex gap-3 mt-auto">
-                  {project.demo ? (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      View Live
-                    </a>
-                  ) : (
-                    <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-500 rounded-lg text-sm font-medium flex-1 justify-center">
-                      <ExternalLink className="w-4 h-4" />
-                      Private / Research
-                    </div>
-                  )}
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="mb-1 text-lg font-bold text-foreground">{project.title}</h3>
+                  <p className="mb-3 text-xs font-semibold text-primary">{project.role}</p>
+                  <p className="mb-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {project.description}
+                  </p>
+
+                  <p className="mb-4 border-l-2 border-primary/40 pl-3 text-xs italic text-muted-foreground">
+                    {project.outcome}
+                  </p>
+
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto">
+                    {project.demo ? (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        View Live
+                      </a>
+                    ) : (
+                      <div className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-muted px-4 py-2 text-sm font-medium text-muted-foreground">
+                        <Lock className="h-4 w-4" />
+                        Private / Research
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

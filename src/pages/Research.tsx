@@ -1,4 +1,6 @@
 import { BookOpen, Cpu, HeartPulse, GraduationCap } from 'lucide-react'
+import Reveal from '../components/Reveal'
+import SectionHeading from '../components/SectionHeading'
 
 export default function Research() {
   const publications = [
@@ -46,59 +48,67 @@ export default function Research() {
   ]
 
   return (
-    <section id="research" className="bg-gray-50 py-20 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Research & Publications</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">Research Work</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Peer-reviewed research on secure distributed systems for healthcare IoT, plus applied work at the intersection of AI, healthcare, and education.
-          </p>
-        </div>
+    <section id="research" className="bg-muted/40 py-24 sm:py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        <SectionHeading
+          tagline="Research & Publications"
+          title="Research Work"
+          subtitle="Peer-reviewed research on secure distributed systems for healthcare IoT, plus applied work at the intersection of AI, healthcare, and education."
+        />
 
         {/* Publications */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-blue-600" />
-            Publications
-          </h3>
+          <Reveal>
+            <h3 className="mb-6 flex items-center gap-2 font-headline text-2xl font-bold text-foreground">
+              <BookOpen className="h-6 w-6 text-primary" />
+              Publications
+            </h3>
+          </Reveal>
           <div className="space-y-6">
             {publications.map((pub, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-600 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <h4 className="text-lg font-bold text-gray-900 leading-snug">{pub.title}</h4>
-                  <div className="flex flex-col items-end gap-1 shrink-0">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">{pub.year}</span>
-                    <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">{pub.type}</span>
+              <Reveal key={pub.title} delay={index * 90}>
+                <div className="rounded-lg border border-border bg-background/50 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow-primary">
+                  <div className="mb-3 flex items-start justify-between gap-4">
+                    <h4 className="text-lg font-bold leading-snug text-foreground">{pub.title}</h4>
+                    <div className="flex shrink-0 flex-col items-end gap-1">
+                      <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                        {pub.year}
+                      </span>
+                      <span className="rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold text-accent">
+                        {pub.type}
+                      </span>
+                    </div>
                   </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{pub.summary}</p>
+                  <p className="mt-3 text-xs font-medium text-muted-foreground/70">
+                    Grand Valley State University — Graduate Research
+                  </p>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed">{pub.summary}</p>
-                <p className="text-xs text-gray-400 mt-3 font-medium">Grand Valley State University — Graduate Research</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Research Areas */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Research & Applied Areas</h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <Reveal>
+            <h3 className="mb-6 font-headline text-2xl font-bold text-foreground">
+              Research & Applied Areas
+            </h3>
+          </Reveal>
+          <div className="grid gap-6 md:grid-cols-2">
             {areas.map((area, index) => {
-              const IconComponent = area.icon
+              const Icon = area.icon
               return (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-600 hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-blue-600" />
+                <Reveal key={area.title} delay={(index % 2) * 90}>
+                  <div className="group h-full rounded-lg border border-border bg-background/50 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow-primary">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h4 className="mb-2 text-lg font-bold text-foreground">{area.title}</h4>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{area.description}</p>
                   </div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">{area.title}</h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">{area.description}</p>
-                </div>
+                </Reveal>
               )
             })}
           </div>

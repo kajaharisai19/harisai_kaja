@@ -1,193 +1,63 @@
-import { Mail, Linkedin, Github } from 'lucide-react'
-import React, { useState } from 'react'
-import type { FormEvent } from 'react'
-import { submitContactForm } from '../lib/contactService'
-import type { ContactFormData } from '../lib/contactService'
+import { Mail, Linkedin, Github, Phone } from 'lucide-react'
+import Reveal from '../components/Reveal'
+import SectionHeading from '../components/SectionHeading'
 
 export default function Contact() {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    message: '',
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null
-    message: string
-  }>({ type: null, message: '' })
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus({ type: null, message: '' })
-
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setSubmitStatus({ type: 'error', message: 'Please fill in all fields.' })
-      setIsSubmitting(false)
-      return
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(formData.email)) {
-      setSubmitStatus({ type: 'error', message: 'Please enter a valid email address.' })
-      setIsSubmitting(false)
-      return
-    }
-
-    const result = await submitContactForm(formData)
-
-    if (result.success) {
-      setSubmitStatus({
-        type: 'success',
-        message: 'Thank you! Your message has been sent successfully.',
-      })
-      setFormData({ name: '', email: '', message: '' })
-    } else {
-      setSubmitStatus({
-        type: 'error',
-        message: 'Sorry, there was an error sending your message. Please try again.',
-      })
-    }
-
-    setIsSubmitting(false)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
   const contactMethods = [
-    {
-      icon: Mail,
-      title: 'Email',
-      value: 'kaja.harisai19@gmail.com',
-      href: 'mailto:kaja.harisai19@gmail.com',
-    },
-    {
-      icon: Linkedin,
-      title: 'LinkedIn',
-      value: '/in/kajaharisai',
-      href: 'https://www.linkedin.com/in/kajaharisai/',
-    },
-    {
-      icon: Github,
-      title: 'GitHub',
-      value: '@kajaharisai',
-      href: 'https://github.com/kajaharisai19',
-    },
+    { icon: Mail, title: 'Email', value: 'kaja.harisai19@gmail.com', href: 'mailto:kaja.harisai19@gmail.com' },
+    { icon: Phone, title: 'Phone', value: '+1 616 228-3449', href: 'tel:+16162283449' },
+    { icon: Linkedin, title: 'LinkedIn', value: '/in/kajaharisai', href: 'https://www.linkedin.com/in/kajaharisai/' },
+    { icon: Github, title: 'GitHub', value: '@kajaharisai19', href: 'https://github.com/kajaharisai19' },
   ]
 
   return (
-    <section id="contact" className="min-h-screen bg-gray-50 py-20 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">
-            Contact
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
-            Get In Touch
-          </h2>
-        </div>
+    <section id="contact" className="py-24 sm:py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        <SectionHeading
+          tagline="Contact"
+          title="Get In Touch"
+          subtitle="Open to full-stack, platform, and AI engineering roles. Let's talk about what you're building."
+        />
 
-        {/* Contact Methods */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        {/* Centered CTA block */}
+        <Reveal className="mb-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="mailto:kaja.harisai19@gmail.com"
+            className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground shadow-glow-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <Mail className="h-4 w-4" />
+            Email Me
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kajaharisai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-md border border-border px-6 py-3 font-medium text-foreground transition-colors duration-300 hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <span className="absolute inset-0 z-0 -translate-x-full bg-gradient-to-r from-primary to-accent transition-transform duration-300 group-hover:translate-x-0" />
+            <Linkedin className="relative z-10 h-4 w-4" />
+            <span className="relative z-10">Connect on LinkedIn</span>
+          </a>
+        </Reveal>
+
+        {/* Contact methods */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {contactMethods.map((method, index) => (
-            <a
-              key={index}
-              href={method.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-600 hover:shadow-lg transition-all duration-300 text-center group"
-            >
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
-                <method.icon className="w-6 h-6 text-blue-600 group-hover:text-white" />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1">{method.title}</h3>
-              <p className="text-sm text-gray-600">{method.value}</p>
-            </a>
-          ))}
-        </div>
-
-        {/* Contact Form */}
-        <div className="bg-white border border-gray-200 rounded-xl p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="Your name"
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="youremail@example.com"
-                  disabled={isSubmitting}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent resize-none"
-                placeholder="Place your query here..."
-                disabled={isSubmitting}
-              />
-            </div>
-
-            {submitStatus.type && (
-              <div
-                className={`p-4 rounded-lg ${
-                  submitStatus.type === 'success'
-                    ? 'bg-green-50 border border-green-200 text-green-800'
-                    : 'bg-red-50 border border-red-200 text-red-800'
-                }`}
+            <Reveal key={method.title} delay={index * 90}>
+              <a
+                href={method.href}
+                target={method.href.startsWith('http') ? '_blank' : '_self'}
+                rel="noopener noreferrer"
+                className="group flex h-full flex-col items-center rounded-lg border border-border bg-background/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow-primary"
               >
-                {submitStatus.message}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full px-6 py-4 rounded-lg font-semibold transition-all duration-200 ${
-                isSubmitting
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl'
-              } text-white`}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <method.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mb-1 font-semibold text-foreground">{method.title}</h3>
+                <p className="break-all text-sm text-muted-foreground">{method.value}</p>
+              </a>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

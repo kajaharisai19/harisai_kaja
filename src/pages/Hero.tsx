@@ -1,142 +1,122 @@
 import { ArrowRight, Github, Linkedin, Mail, FileText } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
+const NAME = 'Hari Sai Kaja'
+const ROLES = [
+  'Full-Stack Engineer',
+  'Platform Engineer',
+  'AI / LLM Engineer',
+  'Technical Lead',
+]
+
+const socials = [
+  { icon: Github, href: 'https://github.com/kajaharisai19', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/kajaharisai/', label: 'LinkedIn' },
+  { icon: Mail, href: 'mailto:kaja.harisai19@gmail.com', label: 'Email' },
+  { icon: FileText, href: '/HariSaiKaja_Resume.pdf', label: 'Resume' },
+]
+
 export default function Hero() {
-  const [typedText, setTypedText] = useState('')
-  const codeText = `const engineer = {
-  name: "Hari Sai Kaja",
-  role: "Senior SWE | AI Systems | Tech Lead",
-  experience: "9+ years",
-  stack: [
-    "Python", "TypeScript", "React",
-    "AWS", "LLMs", "MCP"
-  ],
-  domains: [
-    "Healthcare", "FinTech", "SaaS", "IoT"
-  ],
-  location: "Grand Rapids, MI"
-};`
+  const [roleIndex, setRoleIndex] = useState(0)
 
   useEffect(() => {
-    let index = 0
-    const timer = setInterval(() => {
-      if (index <= codeText.length) {
-        setTypedText(codeText.slice(0, index))
-        index++
-      } else {
-        clearInterval(timer)
-      }
-    }, 28)
-
+    const timer = setInterval(() => setRoleIndex((i) => (i + 1) % ROLES.length), 2600)
     return () => clearInterval(timer)
   }, [])
 
-  const scrollToProjects = () => {
-    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const scrollToContact = () => {
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 px-6">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-16"
+    >
+      {/* Ambient glows */}
+      <div className="pointer-events-none absolute -top-24 left-1/4 h-96 w-96 rounded-full bg-primary/20 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-accent/20 blur-[120px]" />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full">
-              <span className="text-blue-400 text-sm font-mono">&lt;/&gt;</span>
-              <span className="text-white text-sm">Senior SWE · AI Systems · Technical Lead</span>
-            </div>
+      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
+        <span
+          className="mb-6 inline-flex animate-fade-up items-center gap-2 rounded-full border border-border bg-background/50 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
+          style={{ animationDelay: '0.1s' }}
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+          </span>
+          Available for senior & lead roles
+        </span>
 
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                Building Systems
-                <br />
-                That Scale with
-                <br />
-                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  AI at the Core
-                </span>
-              </h1>
-
-              <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-                Senior Software Engineer with 9+ years delivering production systems across healthcare, fintech, SaaS, and data engineering. I architect full-stack platforms, lead engineering teams, and integrate LLMs and AI into real products — from clinical simulation tools to enterprise collaboration SaaS.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={scrollToProjects}
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl hover:gap-3"
+        {/* Name — letter-by-letter sparkle entrance */}
+        <h1 className="font-headline text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
+          <span className="sr-only">{NAME}</span>
+          <span aria-hidden="true">
+            {NAME.split('').map((char, i) => (
+              <span
+                key={i}
+                className="inline-block animate-sparkle bg-gradient-to-br from-foreground via-foreground to-primary bg-clip-text text-transparent"
+                style={{ animationDelay: `${0.3 + i * 0.05}s` }}
               >
-                View Projects
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button
-                onClick={scrollToContact}
-                className="px-6 py-3 glass text-white rounded-full font-medium transition-all duration-200 hover:bg-white/20 shadow-lg"
-              >
-                Get in Touch
-              </button>
-            </div>
+                {char === ' ' ? ' ' : char}
+              </span>
+            ))}
+          </span>
+        </h1>
 
-            {/* Social Icons */}
-            <div className="flex gap-4 pt-4">
-              {[
-                { icon: Github, href: 'https://github.com/kajaharisai19', label: 'GitHub' },
-                { icon: Linkedin, href: 'https://www.linkedin.com/in/kajaharisai/', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:kaja.harisai19@gmail.com', label: 'Email' },
-                { icon: FileText, href: '/HariSaiKaja_FullStack.pdf', label: 'Resume' },
-              ].map((social, i) => (
-                <a
-                  key={i}
-                  href={social.href}
-                  target={social.href.startsWith('mailto') ? '_self' : '_blank'}
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="p-3 glass hover:bg-white/20 rounded-full transition-all duration-200"
-                >
-                  <social.icon className="w-5 h-5 text-white" />
-                </a>
-              ))}
-            </div>
-          </div>
+        {/* Animated role subtitle */}
+        <div className="mt-5 h-8 overflow-hidden">
+          <p
+            key={roleIndex}
+            className="animate-fade-up text-xl font-medium text-primary sm:text-2xl"
+          >
+            {ROLES[roleIndex]}
+          </p>
+        </div>
 
-          {/* Right Content - Code Snippet */}
-          <div className="relative">
-            <div className="glass-dark rounded-2xl shadow-2xl overflow-hidden">
-              {/* Browser Header */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <span className="text-white/60 text-sm ml-4 font-mono">engineer.ts</span>
-              </div>
+        <p
+          className="mt-6 max-w-2xl animate-fade-up text-base leading-relaxed text-muted-foreground sm:text-lg"
+          style={{ animationDelay: '1s' }}
+        >
+          8+ years building and operating production systems across full-stack development,
+          platform engineering, distributed data, cloud-native infrastructure, and applied AI. I
+          take products from 0 to 1 and integrate agentic AI and LLMs into real, shipped software.
+        </p>
 
-              {/* Code Content */}
-              <div className="p-6 font-mono text-sm md:text-base">
-                <pre className="text-white/90">
-                  <code>
-                    <span className="text-white/50">// engineer.ts</span>
-                    {'\n'}
-                    <span className="text-cyan-300">{typedText}</span>
-                    <span className="animate-pulse text-cyan-300">|</span>
-                  </code>
-                </pre>
-              </div>
-            </div>
+        <div
+          className="mt-9 flex animate-fade-up flex-wrap items-center justify-center gap-4"
+          style={{ animationDelay: '1.15s' }}
+        >
+          <button
+            onClick={() => scrollTo('#projects')}
+            className="group inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground shadow-glow-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            View My Work
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </button>
+          <button
+            onClick={() => scrollTo('#contact')}
+            className="inline-flex items-center gap-2 rounded-md border border-border bg-background/50 px-6 py-3 font-medium text-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Get in Touch
+          </button>
+        </div>
 
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl"></div>
-          </div>
+        <div
+          className="mt-10 flex animate-fade-up items-center gap-3"
+          style={{ animationDelay: '1.3s' }}
+        >
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith('mailto') ? '_self' : '_blank'}
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/50 text-muted-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary hover:shadow-glow-primary"
+            >
+              <s.icon className="h-[18px] w-[18px]" />
+            </a>
+          ))}
         </div>
       </div>
     </section>

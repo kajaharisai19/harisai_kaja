@@ -1,16 +1,19 @@
+import Reveal from '../components/Reveal'
+import SectionHeading from '../components/SectionHeading'
+
 export default function Experience() {
   const experiences = [
     {
-      role: 'Software Engineer',
-      company: 'Blue Nucleus, GVSU',
+      role: 'Software Developer',
+      company: 'Blue Nucleus / GVSU',
       period: 'Jan 2026 – Present',
       location: 'Grand Rapids, MI',
       highlights: [
-        'Building an AI-assisted clinical simulation platform for the GVSU College of Nursing that mirrors EHR workflows and enables realistic student practice.',
-        'Integrated MCP and LLM APIs to automate clinical case creation for faculty and reduce manual preparation effort.',
-        'Owned the full-stack architecture using Next.js, TypeScript, shadcn/ui, and Supabase/PostgreSQL, including data modeling, API design, and UI fidelity.',
-        'Partnered with nursing faculty to translate clinical workflows into product requirements and iterate based on pilot feedback.',
-        'Added Jest unit and integration tests across API endpoints and React components to maintain quality in CI/CD.',
+        'Took an AI-driven clinical-simulation platform from 0 to 1, architecting it end to end on a Next.js and Supabase (PostgreSQL) stack and piloting it live with nursing faculty.',
+        'Built an agentic AI layer with MCP and custom agents over Claude and Gemini, plus RAG, turning static clinical scenario data into adaptive, real-time simulations and cutting manual facilitation effort 40%.',
+        'Designed clean, SOLID service boundaries and data models to give non-engineers a safe, self-serve way to extend platform functionality.',
+        'Shipped continuously via a GitHub Actions CI/CD pipeline to Vercel and AWS, backed by integration tests and observability instrumentation.',
+        'Triaged and resolved defects across the full stack — frontend, backend, and deployment layers — ahead of each release cycle.',
       ],
     },
     {
@@ -19,110 +22,116 @@ export default function Experience() {
       period: 'Jan 2025 – Jan 2026',
       location: 'Grand Rapids, MI',
       highlights: [
-        'Researched lightweight consensus mechanisms for IoHT devices, focusing on secure coordination for resource-constrained edge nodes.',
-        'Contributed to the hardware implementation of the proposed algorithm, including the intra-edge node mobility component, and validated the model on physical devices.',
-        'Published 2 peer-reviewed research papers based on the protocol design and prototype results, including PUFchain: Secure IoHT Authentication via PUFs, ZKPs, and Blockchain (2026).',
-        'Collaborated with research advisors across hardware design, validation, and paper authorship.',
+        'Engineered a lightweight distributed consensus protocol for resource-constrained IoHT edge systems, designing efficient data structures for consensus state and co-authoring 2 peer-reviewed publications.',
+        'Built event-driven pipelines across Layer 2 and Layer 3 networks on ESP32 and Raspberry Pi nodes using Kafka and pub/sub messaging, applying cryptography for secure authentication.',
+        'Delivered an end-to-end Azure cloud-native data pipeline with Data Factory, Blob Storage, and RBAC-secured serverless functions.',
+        'Automated the test harness and metrics collection in Python and Shell for reliable, repeatable benchmarking.',
+        'Benchmarked real-hardware authentication latency across intra-edge mobility scenarios to validate system reliability.',
       ],
     },
     {
-      role: 'Senior Software Engineer, Architect & Tech Lead',
-      company: 'Candy Technologies Pvt Ltd',
+      role: 'Senior Software Engineer',
+      company: 'Candy Technologies',
       period: 'Aug 2021 – Aug 2024',
       location: 'Hyderabad, India',
       highlights: [
-        'Led modernization of SyncOffice, an enterprise collaboration SaaS used by healthcare, universities, CA firms, and IT services companies, after inheriting a legacy PHP/React codebase with scalability and security gaps.',
-        'Reduced deployment time from overnight to minutes by introducing Blue-Green deployments, load balancing, stronger security controls, and AWS infrastructure improvements.',
-        'Cut cloud costs by approximately 60% while improving reliability and scalability.',
-        'Architected and built a cloud-native SyncOffice platform from scratch using Next.js, NestJS, and shadcn/ui, with modern security and performance standards across the stack.',
-        'Led migration of 12TB+ of client documents into SyncCloud using cached, low-downtime transitions.',
-        'Designed and built TallyCloud, enabling clients to access on-premise Tally accounting software through a web interface.',
-        'Ran requirements discovery and product discussions with 3 chartered accountant firm clients, each with multiple branches and up to 2,000+ end clients.',
-        'Established Jest and pytest testing practices and made automated testing part of the CI/CD pipeline.',
-        'Led and mentored engineers, drove sprint planning, architecture reviews, and stakeholder communication as the primary technical voice.',
+        'Took SyncOffice from -1 to 0 to 1: stabilized and modernized an aging PHP/React monolith into a Next.js and NestJS (TypeScript) architecture serving 3 enterprise clients across 12TB, then built new capability on top as technical lead, applying SOLID principles and clean architecture.',
+        'Migrated the data layer from MySQL to PostgreSQL, modeling schemas with Prisma ORM and indexes that sustained sub-second query performance under enterprise load.',
+        'Provisioned cloud infrastructure as code with Terraform (EC2, ELB, S3, IAM, CloudWatch, CloudTrail, key rotation) and orchestrated containerized workloads on EKS, cutting infrastructure cost 60%.',
+        'Achieved zero-downtime, progressive delivery with Dockerized blue-green pipelines on GitHub Actions and Jenkins, embedding DevSecOps (SAST/DAST) into the CI pipeline.',
+        'Owned on-call incident response, runbooks, and blameless postmortems, reducing MTTR 25%, and mentored engineers through peer code reviews.',
+        'Executed large-scale data migrations to Hetzner and DigitalOcean Spaces and onboarded 3 enterprise clients as client-facing technical lead.',
       ],
     },
     {
-      role: 'Data Engineer & Tech Lead',
-      company: 'NewsClick.in',
+      role: 'Data Engineer',
+      company: 'NewsClick',
       period: 'Oct 2019 – Aug 2021',
       location: 'New Delhi, India',
       highlights: [
-        'Architected and delivered a COVID-19 data intelligence platform used by national news media, solving the challenge of extracting structured data from newspapers, social media, and online news sources.',
-        'Applied KDD methodology and imputation techniques to improve data accuracy across global, national, state, district, and ward levels.',
-        'Built the extraction, validation, and processing engine in Python, with Apache Druid and PostgreSQL for analytics and Next.js for the frontend.',
-        'Built an election results live dashboard providing real-time vote counting, vote/poll shift analysis, and historical comparisons using React Charts, Python, MongoDB, and GitLab CI.',
-        'Wrote pytest suites to validate extraction accuracy, imputation logic, and data integrity, and integrated them into Jenkins CI.',
-        'Designed a GraphQL API layer for an internal service, defining schemas, resolvers, and query optimization patterns.',
-        'Led a team of 3 and worked closely with journalists and data scientists to translate editorial needs into technical solutions.',
+        'Operated distributed, event-driven Kafka pipelines processing 100K+ records daily into election and COVID-19 dashboards, using ETL and KDD workflows.',
+        'Built FastAPI and Flask REST APIs and React and Next.js dashboards (deployed on Vercel) consumed live by newsroom journalists under deadline pressure.',
+        'Architected a COVID-19 analytics platform on Apache Druid for low-latency, multi-dimensional querying, tuning SQL to sub-second response under peak national election traffic.',
+        'Automated data scraping and ingestion pipelines in Python (BeautifulSoup, Scrapy), using Redis for caching and MongoDB/Elasticsearch/Firebase for storage and search.',
+        'Instrumented services with New Relic for observability and administered a bare-metal Hetzner Linux fleet (Nginx, SSL, Ansible, backups).',
       ],
     },
     {
       role: 'Software Development Engineer',
-      company: 'Vitwit Technologies Pvt Ltd',
+      company: 'Vitwit Technologies',
       period: 'Aug 2018 – Oct 2019',
       location: 'Hyderabad, India',
       highlights: [
-        'Built a fintech ITR filing application in React and Python/Flask, automating document analysis, tax suggestion, and form autofill workflows through a chatbot-driven interface.',
-        'Led development of a social media intelligence platform that extracted content from Google News, local newspapers, portals, Twitter, and Facebook, then applied NLP sentiment analysis for classification and scoring.',
-        'Optimized the extraction engine with multithreading and parallel processing to process 10,000–50,000 records in minutes.',
-        'Improved retrieval performance through Elasticsearch indexing and query optimization, reducing database P95 latency.',
-        'Built Jest and pytest test coverage for API and NLP components and automated builds in Jenkins CI.',
+        'Built a Go backend for smart contracts in partnership with Comdex (Cosmos ecosystem), and won the Consensus 2.0 Hackathon 2019.',
+        'Shipped the TaxFriday AI chatbot end to end (React frontend, Python/Flask and Node.js backend), owning platform DevOps on AWS (EC2, IAM, CloudWatch, ELB), Docker, Ansible, and Jenkins.',
+        'Built a high-throughput NLP sentiment-analysis platform processing 10k–50k records per minute on Elasticsearch, Kafka, Redis, and MongoDB.',
+        'Embedded DevSecOps (SAST/DAST) into CI pipelines and instrumented services with Prometheus and Grafana for observability, covering on-call rotations.',
+        'Led a 6-person team across Agile sprints (Jira), mentored 2 interns, and earned a Special Appreciation Award for the Sana platform.',
       ],
     },
     {
-      role: 'Trainee Software Engineer',
-      company: 'Jochebed Tech Solutions',
+      role: 'Trainee Engineer',
+      company: 'Jochebed Tech Solutions (JTS)',
       period: 'Nov 2017 – Aug 2018',
       location: 'Hyderabad, India',
       highlights: [
-        'Built a Python/Django inventory management application with an Android frontend to track raw materials, finished goods, invoicing, and daily reporting.',
-        'Contributed to an embedded pollution monitoring project using NodeMCU, C++, and MQTT for municipal reporting.',
+        'Built a full-stack Django/Flask inventory management system (MySQL, GitLab) with an Android client for real-time order tracking and automated sales reporting.',
+        'Built an IoT pollution-monitoring dashboard from NodeMCU sensor telemetry, implementing edge data ingestion in Embedded C over MQTT.',
+        'Translated stakeholder workflow requirements into shipped features, supporting debugging and maintenance in a small, cross-functional production team.',
       ],
     },
   ]
 
   return (
-    <section id="experience" className="min-h-screen bg-gray-50 py-20 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Career Path</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2">Experience</h2>
-        </div>
+    <section id="experience" className="bg-muted/40 py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <SectionHeading tagline="Career Path" title="Experience" />
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-blue-200"></div>
+          {/* Connecting line: left on mobile, centered on desktop */}
+          <div className="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-primary/60 via-border to-transparent lg:left-1/2 lg:-translate-x-1/2" />
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-0 md:pl-20">
-                {/* Timeline dot */}
-                <div className="hidden md:flex absolute left-6 top-0 w-5 h-5 bg-blue-600 rounded-full border-4 border-gray-50"></div>
+          <div className="space-y-10 lg:space-y-16">
+            {experiences.map((exp, index) => {
+              const isLeft = index % 2 === 0
+              return (
+                <div
+                  key={index}
+                  className={`relative pl-12 lg:pl-0 ${
+                    isLeft ? 'lg:pr-[calc(50%+2rem)]' : 'lg:pl-[calc(50%+2rem)]'
+                  }`}
+                >
+                  {/* Glowing dot marker */}
+                  <span className="absolute left-4 top-2 z-10 flex h-4 w-4 -translate-x-1/2 items-center justify-center lg:left-1/2">
+                    <span className="absolute h-4 w-4 animate-ping rounded-full bg-primary/40" />
+                    <span className="h-3 w-3 rounded-full bg-primary shadow-glow-primary ring-4 ring-background" />
+                  </span>
 
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-600 hover:shadow-lg transition-all duration-300">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{exp.role}</h3>
-                      <p className="text-blue-600 font-semibold">{exp.company}</p>
+                  <Reveal>
+                    <div className="rounded-lg border border-border bg-background/50 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow-primary">
+                      <div className="mb-4 flex flex-col gap-1 md:flex-row md:items-start md:justify-between">
+                        <div>
+                          <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
+                          <p className="font-semibold text-primary">{exp.company}</p>
+                        </div>
+                        <div className="text-sm text-muted-foreground md:text-right">
+                          <p className="font-medium text-foreground/80">{exp.period}</p>
+                          <p>{exp.location}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2">
+                        {exp.highlights.map((h, i) => (
+                          <li key={i} className="flex items-start text-sm text-muted-foreground">
+                            <span className="mr-2 mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="text-gray-600 text-sm mt-2 md:mt-0 md:text-right">
-                      <p className="font-medium">{exp.period}</p>
-                      <p>{exp.location}</p>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2">
-                    {exp.highlights.map((highlight, i) => (
-                      <li key={i} className="flex items-start text-gray-700">
-                        <span className="text-blue-600 mr-2 mt-1.5 shrink-0">•</span>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  </Reveal>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
